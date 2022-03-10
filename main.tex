@@ -2,10 +2,11 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath} % advanced math
-\usepackage{hyperref} % urls
+\usepackage[hidelinks]{hyperref} % hide ugly boxes around links + add urls support
 \usepackage{indentfirst} % intend first paragraph
 \usepackage{algpseudocode} % add pseudocode
-\usepackage{algorithm} % fancier pseudocodes
+\usepackage{algorithm} % fancier pseudocode
+\usepackage{array} % better alignments of tables
 
 \title{Master Thesis}
 \author{Bc. Lukáš Forst}
@@ -27,7 +28,7 @@ So far this document is just set of random paragraphs and notes for the future.
 \item A trust model for the global peer-to-peer network of IPS agents in highly adversarial environment.
 \end{itemize}
 
-\section{Problems we want to solve}
+\section{Problems we are solving}
 \begin{enumerate}
 \item How do we determine who and how much to trust in global peer-to-peer network, where peers can join and quickly leave and there is a possibility that all connected peers are adversarial.
 \item Given that peers can join and leave any time, we will have problem with cold boot. We need to come up with a way how can newcomers safely gain initial trust fast.
@@ -42,7 +43,7 @@ So far this document is just set of random paragraphs and notes for the future.
 
 \include{text/interaction_evaluation}
 
-\section{Introduction}
+\include{text/ti_aggregation}
 
 \include{text/equations}
 
