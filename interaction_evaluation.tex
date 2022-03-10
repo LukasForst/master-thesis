@@ -1,0 +1,55 @@
+\subsection{Interaction Evaluations}
+% TODO: change to subsection if needed and change the introduction for the problem
+
+\textbf{The problem for this section}: we need to be able to somehow evaluate that the peer is giving us data, that do not make any sense. 
+For example, during badmouthing or unfair praises attacks, the adversaries provide intentionally wrong data in order to influence the final decision of the trust model.
+
+There are multiple possibilities how to solve this:
+\begin{enumerate}
+\item ignore the problem and rely on a fact that the longer we are connected to the peer, we are more sure that the peer is giving us correct data - this is actually based purely on the Salinity botnet model and Dovecot (Dita's thesis) is using exactly this approach
+\item compare each interaction with each other and then evaluate how far was the reporting peer from the aggregated result
+\item compare each TI report with the local Slips opinion 
+\item combination of previous approaches
+\end{enumerate}
+
+
+\subsubsection{Evaluate all interactions with the same value}
+A naive approach when the trust model uses the same satisfaction value for all threat intelligence data it received. It does not check, if the data make sense (for example when all other peers but one are reporting that the IP address is malicious) and assigns all peers same $s^{k}_{p_i}$. The idea behind this algorithm is that when the peers are interacting for a longer time and have more interactions, they're more trustworthy.
+
+This approach is for example used by the botnet Sality or by the Dovecot trust model. Fides implements it as $EvenTIEvaluation$ strategy with configurable satisfaction value and administrator can use this strategy if they see it as the most optimal.
+
+The disadvantage of this approach is that we do not penalize remote peers when they provide wrong data. In a case when the adversary gains the service trust of the model by following the protocol for longer time, it may significantly influence the aggregated score as the adversary has higher trust then other remote peers. If this happens, there is no way to automatically downgrade adversary's service trust.
+
+\subsubsection{Use aggregated network intelligence for evaluation}
+As during the time, we evaluate the provided threat intelligence from the peers, we know the aggregated result from the Fides, we can utilize it as a base line and then compare it against each threat intelligence we received. This evaluation strategy is implemented in the Fides a as a $DistanceBasedTIEvaluation$.
+
+% TODO: here we need to set correct indexes, because k-th interaction between local and peer i is not necessarily the same number as for the peer i+1 -> that means that for S_a we will need another number
+
+In order to evaluate received data from the peer $p_i$ we need to compute satisfaction with the interaction  $\forall s^{k}_{p_i}: 0 \leq s^{k}_{p_i} \leq 1$ where $k$ is $k$th interaction  between local peer and peer $p_i$.
+
+\begin{equation}
+s^{k}_{p_i} = (1 - \frac{|S^{k}_{a} - S^{k}_{p_i}|}{2} * C^{k}_{p_i}) * C^{k}_a
+\end{equation}
+Where $S_a$ is final score aggregated across the reports from the peers, $C_a$ is aggregated confidence, $S_{p_i}$is score received from the peer $p_i$ and $C_{p_i}$ is confidence of said peer about $S_{p_i}$. 
+
+The problem in this evaluation algorithm are the situations when the aggregated confidence $C_a$ is close to $0$. In this case the algorithm will penalize all peers for providing any threat intelligence as the final $s^{k}_{p_i}$ is close to $0$.
+
+
+
+In order to solve this issue, we designed an evaluation that avoids that using combination of approaches where when the evaluation process uses different evaluation strategies based on $C_a$ - $ThresholdTIEvaluation$. 
+% TODO: I'm not sure if we really need this schema
+\begin{algorithm}
+\caption{$ThresholdTIEvaluation$}\label{alg:threshold-ti-evaluation}
+\begin{algorithmic}[1]
+\State $C_T \gets configuration$ \Comment{configuration provided by the administrator}
+\If{$C_a < C_T$}
+	\State $s^{k}_{p_i} \gets EvenTIEvaluation()$
+\Else
+    \State $s^{k}_{p_i} \gets DistanceBasedTIEvaluation()$
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+What should be the correct value for $C_T$ from configuration is subject to evaluation in the simulations.
+
+
