@@ -1,4 +1,4 @@
-\subsection{Interaction Evaluations}
+\subsection{Threat Intelligence Interaction Evaluations}
 % TODO: change to subsection if needed and change the introduction for the problem
 
 \textbf{The problem for this section}: we need to be able to somehow evaluate that the peer is giving us data, that do not make any sense. 
@@ -28,15 +28,14 @@ As during the time, we evaluate the provided threat intelligence from the peers,
 In order to evaluate received data from the peer $p_i$ we need to compute satisfaction with the interaction  $\forall s^{k}_{p_i}: 0 \leq s^{k}_{p_i} \leq 1$ where $k$ is $k$th interaction  between local peer and peer $p_i$.
 
 \begin{equation}
-s^{k}_{p_i} = (1 - \frac{|S^{k}_{a} - S^{k}_{p_i}|}{2} * C^{k}_{p_i}) * C^{k}_a
+s^{k}_{p_i} = (1 - \frac{|S^{k}_{a} - S^{k}_{p_i}|}{2} \cdot C^{k}_{p_i}) \cdot C^{k}_a
 \end{equation}
 Where $S_a$ is final score aggregated across the reports from the peers, $C_a$ is aggregated confidence, $S_{p_i}$is score received from the peer $p_i$ and $C_{p_i}$ is confidence of said peer about $S_{p_i}$. 
 
-The problem in this evaluation algorithm are the situations when the aggregated confidence $C_a$ is close to $0$. In this case the algorithm will penalize all peers for providing any threat intelligence as the final $s^{k}_{p_i}$ is close to $0$.
+The problem in this evaluation algorithm are the situations when the aggregated confidence $C_a$ is close to $0$. In this case the algorithm will penalize all peers for providing any threat intelligence as the final $s^{k}_{p_i}$ is close to $0$. Another issue with this approach is that when a single honest peer has a unique information about an IP address or domain, which is significantly different then what other peers have, it is automatically penalized for not sharing the same opinion as the other peers. 
 
-
-
-In order to solve this issue, we designed an evaluation that avoids that using combination of approaches where when the evaluation process uses different evaluation strategies based on $C_a$ - $ThresholdTIEvaluation$. 
+\subsubsection{Use network intelligence only if the confidence is high enough}
+In order to compensate for the low confidence $C_a$, this evaluation strategy employs $DistanceBasedTIEvaluation$ only when the $C_a$ is \textit{"high enough"}. In this case \textit{"high enough"} means higher then configured value by the Slips administrator - $C_T$. In a case when  $C_a < C_T$, the algorithm fall backs to using $EvenTIEvaluation$, because it is not possible to distinguish between "good" and "bad" network intelligence. This strategy is implemented in Fides under the name $ThresholdTIEvaluation$.
 % TODO: I'm not sure if we really need this schema
 \begin{algorithm}
 \caption{$ThresholdTIEvaluation$}\label{alg:threshold-ti-evaluation}
