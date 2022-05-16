@@ -37,7 +37,7 @@ Fides does not create the peer-to-peer network by itself but instead uses a diff
 Communication between these two systems is done via the standard defined interface, which allows replacing the network module if needed.
 An implementation of such a network layer is the \textbf{Iris}. Iris was designed and developed simultaneously by Bc. Martin Řepa~\cite{nl} and it facilitates safe and secure communication between the Fides instances in the global peer-to-peer network.
 
-In our implementation, we chose Stratosphere Linux IPS (Slips)~\cite{slips} as the example of the intrusion prevention system and implemented a module that allows Slips to use Fides for receiving and sharing threat intelligence over the network. 
+In our implementation, we chose Slips~\cite{slips} as the example of the intrusion prevention system and implemented a module that allows Slips to use Fides for receiving and sharing threat intelligence over the network. 
 By utilizing this shared global knowledge, Slips can prevent attacks on the local environment even before they happen by acting upon received threat intelligence from other peers in the global network.
 
 While evaluating the trust model, we simulated complex simulations. We proved that Fides could correctly uncover the peers' behavior in the network and make sensible decisions about the threat intelligence. 
