@@ -45,8 +45,8 @@ Note that the table \ref{tab:notation-computational-model} describes the most im
 
 \subsection{Service Trust}
 \label{subsec:service-trust}
-As outlined previously, service trust $st_{i, j}$ is a value that describes how much peer $i$ trusts that remote peer $j$ will provide a \textit{good service}.
-We compute the $st_{i, j}$ in the equation \ref{eq:service-trust} by weighing local experience with peer's $j$ service, with the reputation $j$ got from the network when it was first seen by $i$.
+As outlined previously, service trust $st_{i, j}$ is a value that describes how much peer $i$ trusts that remote peer $j$ will provide a \textit{good service}~\cite{sort}.
+We compute the $st_{i, j}$ in the equation~\ref{eq:service-trust} by weighing local experience with peer's $j$ service, with the reputation $j$ got from the network when it was first seen by $i$.
 The used weight is the size of the service interaction history $sh_{i,j}$ to maximal history size $sh_{max}$.
 
 \begin{equation}
@@ -54,7 +54,7 @@ The used weight is the size of the service interaction history $sh_{i,j}$ to max
     st_{i,j}=\frac{sh_{i,j}}{sh_{max}} \cdot \left(cb_{i,j} - \frac{1}{2} ib_{i,j} \right) +\left(1-\frac{sh_{i,j}}{sh_{max}}\right) \cdot r_{i,j}
 \end{equation}
 
-The equation \ref{eq:service-trust} implies that the more interaction there was between peers $i$ and $j$, the bigger impact on $st_{i,j}$ it has. 
+The equation~\ref{eq:service-trust} implies that the more interaction there was between peers $i$ and $j$, the bigger impact on $st_{i,j}$ it has. 
 In other words, the more $i$ and $j$ interact the less $i$ rely on the reputation that $i$ computed from the values provided by the network, at the time when $j$ was seen for the first time by the peer $i$.
 
 \subsection{Local Experience for Service Trust}
@@ -62,19 +62,22 @@ The first part of the equation \ref{eq:service-trust} contains \textit{competenc
 Both of the values are based solely on the history of the interactions that peer $i$ experienced with the peer $j$.
 
 \subsubsection{Competence Belief}
-\textit{Competence belief} represents how much did peer $j$ satisfied local peer $i$ with the past interactions. We measure it as an average of interactions from the past \cite{sort}.
+\textit{Competence belief} represents how much did peer $j$ satisfied local peer $i$ with the past interactions. We measure it as an average of interactions from the past~\cite{sort}.
+
 \begin{equation}
 \begin{split}
     cb_{i,j} &= \frac{1}{\beta_{cb}} \sum_{k=1}^{sh_{i, j}} s_{i,j}^{k} \cdot w_{i,j}^{k} \cdot f_{i,j}^{k} \\
     \beta_{cb} &= \sum_{k=1}^{sh_{i, j}} s_{i,j}^{k} \cdot w_{i,j}^{k}
 \end{split}
 \end{equation}
-It holds that $0 \leq cb_{i,j} \leq 1$ and where $s^{k}_{i,j}$ is the evaluation of the interaction in window $k$, $w^{k}_{i, j}$ is the weight of the interaction (how important it was) and $f^{k}_{i,j}$ is the fading effect of that interaction. We described $s^{k}_{i,j}$, $w^{k}_{i,j}$ and $f^{k}_{i,j}$ in section \ref{subsec:interaction-satisfaction}. 
+
+It holds that $0 \leq cb_{i,j} \leq 1$ and where $s^{k}_{i,j}$ is the evaluation of the interaction in window $k$, $w^{k}_{i, j}$ is the weight of the interaction (how important it was) and $f^{k}_{i,j}$ is the fading effect of that interaction. We described $s^{k}_{i,j}$, $w^{k}_{i,j}$ and $f^{k}_{i,j}$ in section~\ref{subsec:interaction-satisfaction}. 
 $\beta_{cb}$ is the normalization coefficient that ensures that $cb_{i, j}$ stays within the interval of $0 \leq cb_{i,j} \leq 1$.
 
 \subsubsection{Integrity Belief}
 \textit{Integrity belief} $ib_{i,j}$ is a level of confidence in the predictability of future interactions~\cite{sort}. It is measured as a deviation from the average behavior $cb_{i,j}$.
 Therefore, $ib_{i,j}$ is calculated as an approximation to the standard deviation of interaction parameters~\cite{sort}.
+
 \begin{equation}
 \begin{split}
     ib_{i,j} &= \sqrt{\frac{1}{sh_{i,j}} \sum_{k=1}^{sh_{i,j}}\left(s_{i,j}^{k} \cdot w_{i,j}^{\mu} \cdot f_{i,j}^{\mu} - cb_{i,j}\right)^{2}} \\
@@ -88,10 +91,10 @@ The more consistent behavior peer $j$ has, the lower the $ib_{i,j}$ is. Consiste
 
 \subsection{Interaction Satisfaction}
 \label{subsec:interaction-satisfaction}
-$s^{k}_{i, j}$ is $i$'s satisfaction value with interaction with peer $j$ in window $k$.
+$s^{k}_{i, j}$ is $i$'s satisfaction value with interaction with peer $j$ in window $k$~\cite{sort}.
 We outlined before, that each interaction between two peers is evaluated, $s^{k}_{i, j}$ is a result of this evaluation of a single interaction between peers $i$ and $j$.
 Because our trust model is generic, the evaluation function can be implemented for different data differently.
-How did we design it and implemented it for threat intelligence is described in the section \ref{sec:interaction-evaluation-strategies}.
+How did we design it and implemented it for threat intelligence is described in the section~\ref{sec:interaction-evaluation-strategies}.
 
 However, even with the computed interaction satisfaction value, not all interactions are the same. 
 Some of the interactions are more important than others. 
@@ -99,14 +102,14 @@ Moreover, because peers can change their behavior, most recent interactions shou
 That is why we include the weight of the interaction and fading effect.
 
 \subsubsection{Weight of the Interaction}
-Because each interaction is different and its importance is different, we have $w^{k}_{i,j}$ that measures the importance.
+Because each interaction is different and its importance is different, we have $w^{k}_{i,j}$ that measures the importance~\cite{sort}.
 Weight belongs to interval $0 \leq w^{k}_{i,j} \leq 1$ and Fides implements it as a discrete function of interaction type. 
 For example, the weight of interaction when a remote peer shares the threat intelligence is higher than when the remote peer requests threat intelligence.
 
 
 \subsubsection{Fading Effect}
 \label{subsubsec:fading-effect}
-Fading effect $f^{k}_{i,j}$ determines \textit{"how much does algorithm forget"} as the algorithm prefers most recent interactions over past interactions and thus $f^{k}_{i,j}$ reduces the weight of the past interactions. 
+Fading effect $f^{k}_{i,j}$ determines \textit{"how much does algorithm forget"} as the algorithm prefers most recent interactions over past interactions and thus $f^{k}_{i,j}$ reduces the weight of the past interactions~\cite{sort}. 
 $f^{k}_{i,j}$ is a \textit{non-increasing function} of interaction and time or an index of said interaction in history.
 
 The actual implementation of the fading effect depends on the data the trust model is processing.
@@ -121,8 +124,8 @@ However, in our case and after multiple iterations, we decided to not to forget 
 The way how Fides computes $f^{k}_{i,j}$ might be changed in the future and implemented as a function of time, we talk about it more as a part of the future work in the section~\ref{sec:future-work}.
 
 \subsection{Reputation and Recommendations}
-In order to mitigate the cold start problem outlined in the section~\ref{sec:cold-start-problem} and in cases when there are no or little interactions between $i$ and $j$, the algorithm relies on $r_{i,j}$ - \textit{reputation value}. 
-$r_{i,j}$ is the second part of the service trust equation \ref{eq:service-trust} that introduces \textit{remote experience} to the service trust.
+In order to mitigate the cold start problem outlined in the section~\ref{sec:cold-start-problem} and in cases when there are no or little interactions between $i$ and $j$, the algorithm relies on $r_{i,j}$ - \textit{reputation value}~\cite{sort}.
+$r_{i,j}$ is the second part of the service trust equation~\ref{eq:service-trust} that introduces \textit{remote experience} to the service trust.
 
 The \textit{reputation} value is computed from the \textit{recommendations} received from the remote peers. This value represents what remote peers think about another remote peer. However, this value is calculated by the local peer with respect, to how much it trusts each peer, that provided the recommendation.
 When the local peer $i$ encounters remote peer $j$ for the first time and it does not have any data about its trustworthiness, $i$ can request recommendations on peer $j$ from $i$'s most trusted peers.
