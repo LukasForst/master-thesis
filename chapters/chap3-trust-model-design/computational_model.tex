@@ -93,13 +93,13 @@ The more consistent behavior peer $j$ has, the lower the $ib_{i,j}$ is. Consiste
 \label{subsec:interaction-satisfaction}
 $s^{k}_{i, j}$ is $i$'s satisfaction value with interaction with peer $j$ in window $k$~\cite{sort}.
 We outlined before, that each interaction between two peers is evaluated, $s^{k}_{i, j}$ is a result of this evaluation of a single interaction between peers $i$ and $j$.
-Because our trust model is generic, the evaluation function can be implemented for different data differently.
+Because our trust model is generic, the evaluation function can be implemented differently for different data.
 How did we design it and implemented it for threat intelligence is described in the section~\ref{sec:interaction-evaluation-strategies}.
 
 However, even with the computed interaction satisfaction value, not all interactions are the same. 
 Some of the interactions are more important than others. 
 Moreover, because peers can change their behavior, most recent interactions should be more important than the interactions that happened a long time ago.
-That is why we include the weight of the interaction and fading effect.
+That is why we include the weight of the interaction and the fading effect.
 
 \subsubsection{Weight of the Interaction}
 Because each interaction is different and its importance is different, we have $w^{k}_{i,j}$ that measures the importance~\cite{sort}.
@@ -109,7 +109,7 @@ For example, the weight of interaction when a remote peer shares the threat inte
 
 \subsubsection{Fading Effect}
 \label{subsubsec:fading-effect}
-Fading effect $f^{k}_{i,j}$ determines \textit{"how much does algorithm forget"} as the algorithm prefers most recent interactions over past interactions and thus $f^{k}_{i,j}$ reduces the weight of the past interactions~\cite{sort}. 
+Fading effect $f^{k}_{i,j}$ determines \textit{"how much does the algorithm forget"} as the algorithm prefers most recent interactions over past interactions and thus $f^{k}_{i,j}$ reduces the weight of the past interactions~\cite{sort}. 
 $f^{k}_{i,j}$ is a \textit{non-increasing function} of interaction and time or an index of said interaction in history.
 
 The actual implementation of the fading effect depends on the data the trust model is processing.
@@ -121,10 +121,10 @@ However, in our case and after multiple iterations, we decided to not to forget 
 \end{equation}
 
 \noindent
-The way how Fides computes $f^{k}_{i,j}$ might be changed in the future and implemented as a function of time, we talk about it more as a part of the future work in the section~\ref{sec:future-work}.
+The way Fides computes $f^{k}_{i,j}$ might be changed in the future and implemented as a function of time, we discuss this in more detail as a part of the future work in the section~\ref{sec:future-work}.
 
 \subsection{Reputation and Recommendations}
-In order to mitigate the cold start problem outlined in the section~\ref{sec:cold-start-problem} and in cases when there are no or little interactions between $i$ and $j$, the algorithm relies on $r_{i,j}$ - \textit{reputation value}~\cite{sort}.
+In order to mitigate the cold start problem outlined in the section~\ref{sec:cold-start-problem} and in the cases when there are no or few interactions between $i$ and $j$, the algorithm relies on $r_{i,j}$ - \textit{reputation value}~\cite{sort}.
 $r_{i,j}$ is the second part of the service trust equation~\ref{eq:service-trust} that introduces \textit{remote experience} to the service trust.
 
 The \textit{reputation} value is computed from the \textit{recommendations} received from the remote peers. This value represents what remote peers think about another remote peer. However, this value is calculated by the local peer with respect, to how much it trusts each peer, that provided the recommendation.
@@ -137,18 +137,18 @@ The recommendation system built into Fides can not be used in every scenario.
 Because of the sensitive nature of the environment, the trust model was designed for, there are cases when it is dangerous to ask for recommendations.
 That is mainly the case when there are \textit{not enough} peers that are \textit{trusted enough}.
 
-SORT requests recommendations every time it encounters a new peer. Set of recommending peers is created by taking all known peers and selecting the ones, that have higher than average service trust.
+SORT requests recommendations every time it encounters a new peer. The set of recommending peers is created by taking all known peers and selecting the ones, that have higher than average service trust.
 However, those can also be peers with trust as low as $0.001$. In a sensitive environment, which the peer-to-peer network of IPS definitely is, we do not want to get recommendations from peers, that have low trust at all.
 Moreover, given the nature of Slips, we decided to combine a recommendation system based on SORT with static initial trust~(\ref{subsec:static-initial-trust}) and with pre-trusted peers~(\ref{subsec:pre-trusted-peers}).
-This approach gives us a more robust basis for trust sensitive environment and it helps us to mitigate the cold start problem~(\ref{sec:cold-start-problem}).
+This approach provides a more robust basis for a trust-sensitive environment and it helps us to mitigate the cold start problem~(\ref{sec:cold-start-problem}).
 
 If the peer is part of a pre-trusted organization or it is pre-trusted itself, it inherits the configured reputation - $r_{i, j}$ from the configuration.
-In this case, Fides does not engage recommendation protocol at all, because the peer already has reputation $r_{i,j}$ assigned from the configuration and it was \textit{recommended} by the administrator.
+In this case, Fides does not engage the recommendation protocol at all, because the peer already has reputation $r_{i,j}$ assigned from the configuration and it was \textit{recommended} by the administrator.
 Moreover, the administrator can choose if this value is \textit{frozen}, or not. 
 \textit{Frozen Service Trust} configuration means, that the peer $j$ has in eyes of $i$ \textit{static service trust} $st_{i, j}$ - it will never change and whatever data peer $j$ sends to $i$ will not influence the $st_{i,j}$.
 On the other hand, when this configuration is not selected, the peer's service trust is going to change during the time when it communicates with the local instance according to the data and interactions it provides.
 
-In a case when the peer is not pre-trusted, Fides evaluates if has \textit{enough} well-trusted peers that can be trusted to provide the correct recommendation. This value as well as a number of maximal peers used for recommendation is configurable.
+In the case where the peer is not pre-trusted, Fides evaluates if has \textit{enough} well-trusted peers that can be trusted to provide the correct recommendation. This value as well as a number of maximal peers used for recommendation is configurable.
 In addition, the administrator can enforce that for the recommendation protocol, only the pre-trusted peers or the peers from pre-trusted organizations are used.
 
 \subsubsection{Recommendation Response}
