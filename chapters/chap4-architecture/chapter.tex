@@ -12,22 +12,15 @@ In this chapter, we describe the architecture of Fides and how it interacts with
     \label{fig:high-level-architecture}
 \end{figure}
 
-From the high-level perspective (see figures~\ref{fig:high-level-architecture} and \ref{fig:high-level-communication-architecture}), the trust model communicates with two different entities - Slips and the network layer Iris~\cite{nl}.
-Fides performs manages the trust relationships in the network, aggregates threat intelligence data and communicates with Slips. The communication with the remote peers in the network is facilitated by Iris~\cite{nl}. 
-Slips then produces and consumes the threat intelligence and defends the network against intruders~\cite{slips}.
+From the high-level perspective (see figures~\ref{fig:high-level-architecture} and \ref{fig:fides-api-network}), the trust model Fides  communicates with two different systems - Slips~\cite{slips} and the network layer Iris~\cite{nl}.
+Fides performs manages the trust relationships in the network, aggregates threat intelligence data and communicates with Slips. The communication with the remote peers in the network is facilitated by Iris. 
+Slips then produces and consumes the threat intelligence and defends the network against intruders.
 
-Fides exposes and consumes an API~\cite{api} built using the Redis channels for both parts (figure~\cite{fig:high-level-communication-architecture}).
+Fides exposes and consumes an API~\cite{api} built using the Redis channels for both parts (figure~\ref{fig:high-level-architecture}).
 The messages and API calls are consumed using JSON~\cite{json} data format.
 
 Redis is an in-memory data structure store that supports asynchronous channels and a publish-subscribe model~\cite{redis}. Moreover, it can also persist data on disk if required.
 We choose to employ Redis channels as the medium that allows communication between the Iris and Fides and allows them to use their respective APIs because Slips already uses Redis for its internal communication between modules. It brings no additional overhead to run Fides with its network layer.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1.0\textwidth]{assets/communication_architecture.jpeg}
-    \caption{Communication Architecture}
-    \label{fig:high-level-communication-architecture}
-\end{figure}
 
 \include{chapters/chap4-architecture/network}
 
