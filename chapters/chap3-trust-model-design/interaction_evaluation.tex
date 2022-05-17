@@ -49,7 +49,7 @@ Because of that and in a case when the adversary gains the service trust of the 
 
 \subsection{DistanceBasedTIEvaluation}
 \label{subsec:distance-based-eval}
-Because Fides is designed for the sharing and aggregating threat intelligence and understands the protocol that is being used, we can utilize this and penalize the peers that are providing the local peer with incorrect data.
+Because Fides is designed for sharing and aggregating threat intelligence, and understands the protocol that is being used, we can utilize this and penalize the peers that are providing the local peer with incorrect data.
 The interaction evaluation is performed at the end of the threat intelligence sharing process, at that point, Fides already aggregated data and decided what is the aggregated network score and confidence. 
 Thus, we can utilize aggregated values and use them as a baseline. Then we compare it against each remote peer's threat intelligence we received. This evaluation strategy is implemented in the Fides as a $DistanceBasedTIEvaluation$.
 
