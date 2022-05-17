@@ -49,13 +49,13 @@ Because of that and in a case when the adversary gains the service trust of the 
 
 \subsection{DistanceBasedTIEvaluation}
 \label{subsec:distance-based-eval}
-Because Fides is designed for sharing and aggregating threat intelligence, and understands the protocol that is being used, we can utilize this and penalize the peers that are providing the local peer with incorrect data.
-The interaction evaluation is performed at the end of the threat intelligence sharing process, at that point, Fides already aggregated data and decided what is the aggregated network score and confidence. 
-Thus, we can utilize aggregated values and use them as a baseline. Then we compare it against each remote peer's threat intelligence we received. This evaluation strategy is implemented in the Fides as a $DistanceBasedTIEvaluation$.
+Because Fides is designed for sharing and aggregating threat intelligence, and understands the protocol that is being used, we can use this and penalize the peers that are providing the local peer with incorrect data.
+The interaction evaluation is performed at the end of the threat intelligence sharing process, where at that point, Fides already aggregated the data and calculated the aggregated network score and confidence. 
+Thus, we can use the aggregated values as a baseline. Then we compare them against each remote peer's threat intelligence we received. This evaluation strategy is implemented in the Fides as a $DistanceBasedTIEvaluation$.
 
-Suppose, that remote peer $j$ provided data about target $T$ to local peer $i$ in window $k$. Provided data consist of score and confidence ($S^{k}_{j, T}$, $C^{k}_{j, T}$). Where score,  $-1 \leq S^{k}_{j, T} \leq 1$, indicates if the target is malicious ($-1$) or begin ($1$). The confidence $0 \leq C^{k}_{j, T} \leq 1$ on the other hand indicates, how much is the peer sure about its assessment of $S^{k}_{j, T}$.
+Suppose, that remote peer $j$ provided data about target $T$ to local peer $i$ in window $k$. The provided data consist of score and confidence ($S^{k}_{j, T}$, $C^{k}_{j, T}$). Where score,  $-1 \leq S^{k}_{j, T} \leq 1$, indicates if the target is malicious ($-1$) or begin ($1$). The confidence $0 \leq C^{k}_{j, T} \leq 1$ on the other hand indicates, how certain is the peer about its assessment of $S^{k}_{j, T}$.
 
-In order to evaluate interaction between the local peer $i$ and remote peer $j$ we need to compute satisfaction value $s^{k}_{i, j}$. 
+In order to evaluate the interaction between the local peer $i$ and the remote peer $j$ we need to compute the satisfaction value $s^{k}_{i, j}$. 
 It holds that  $0 \leq s^{k}_{i, j} \leq 1$ where $1$ means peer $i$ was satisfied with the interaction.
 
 \begin{equation}
@@ -64,7 +64,7 @@ s^{k}_{i, j} = \left(1 - \frac{|{S}^{k}_{T} - S^{k}_{j, T}|}{2} \cdot C^{k}_{j, 
 
 Where $S^{k}_{T}$ is the final score aggregated across the reports from the peers, $C^{k}_{T}$ is aggregated confidence.
 
-The problem with this evaluation algorithm is the situations when the aggregated confidence $C^{k}_{T}$ is close to $0$. In this case, the algorithm will penalize all peers for providing any threat intelligence as the final $s^{k}_{i, j}$ is close to $0$. Another issue with this approach is that when a single honest peer has unique information about an IP address or domain, which is significantly different than what other peers have, it is automatically penalized for not sharing the same opinion as to the other peers. However, if the peer is trusted enough, it has a higher impact on the aggregated value and it is not penalized too much.
+The problem with this evaluation algorithm is the situations where the aggregated confidence $C^{k}_{T}$ is close to $0$. In this case, the algorithm will penalize all peers for providing any threat intelligence as the final $s^{k}_{i, j}$ is close to $0$. Another issue with this approach is that when a single honest peer has unique information about an IP address or domain, which is significantly different than what other peers have, it is automatically penalized for not sharing the same opinion as  the other peers. However, if the peer is trusted enough, it has a higher impact on the aggregated value and it is not penalized too much.
 
 \subsection{ThresholdTIEvaluation}
 \label{subsec:network-intelligence-conf-high-enough}
