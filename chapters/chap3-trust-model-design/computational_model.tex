@@ -54,8 +54,8 @@ The used weight is the size of the service interaction history $sh_{i,j}$ to max
     st_{i,j}=\frac{sh_{i,j}}{sh_{max}} \cdot \left(cb_{i,j} - \frac{1}{2} ib_{i,j} \right) +\left(1-\frac{sh_{i,j}}{sh_{max}}\right) \cdot r_{i,j}
 \end{equation}
 
-The equation~\ref{eq:service-trust} implies that the more interaction there was between peers $i$ and $j$, the bigger impact on $st_{i,j}$ it has. 
-In other words, the more $i$ and $j$ interact the less $i$ rely on the reputation that $i$ computed from the values provided by the network, at the time when $j$ was seen for the first time by the peer $i$.
+Equation~\ref{eq:service-trust} implies that the more interaction there was between peers $i$ and $j$, the bigger impact on $st_{i,j}$ it has. 
+In other words, the more $i$ and $j$ interact the less $i$ relies on the reputation that $i$ computed from the values provided by the network, at the time when $j$ was seen for the first time by the peer $i$.
 
 \subsection{Local Experience for Service Trust}
 The first part of the equation \ref{eq:service-trust} contains \textit{competence belief} - $cb_{i,j}$, and \textit{integrity belief} - $ib_{i,j}$.
@@ -71,7 +71,7 @@ Both of the values are based solely on the history of the interactions that peer
 \end{split}
 \end{equation}
 
-It holds that $0 \leq cb_{i,j} \leq 1$ and where $s^{k}_{i,j}$ is the evaluation of the interaction in window $k$, $w^{k}_{i, j}$ is the weight of the interaction (how important it was) and $f^{k}_{i,j}$ is the fading effect of that interaction. We described $s^{k}_{i,j}$, $w^{k}_{i,j}$ and $f^{k}_{i,j}$ in section~\ref{subsec:interaction-satisfaction}. 
+It holds that $0 \leq cb_{i,j} \leq 1$ and where $s^{k}_{i,j}$ is the evaluation of the interaction in window $k$, $w^{k}_{i, j}$ is the weight of the interaction (how important it was) and $f^{k}_{i,j}$ is the fading effect of that interaction. We describe $s^{k}_{i,j}$, $w^{k}_{i,j}$ and $f^{k}_{i,j}$ in section~\ref{subsec:interaction-satisfaction}. 
 $\beta_{cb}$ is the normalization coefficient that ensures that $cb_{i, j}$ stays within the interval of $0 \leq cb_{i,j} \leq 1$.
 
 \subsubsection{Integrity Belief}
