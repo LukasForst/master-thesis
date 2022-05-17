@@ -47,7 +47,7 @@ Note that the table \ref{tab:notation-computational-model} describes the most im
 \label{subsec:service-trust}
 As outlined previously, service trust $st_{i, j}$ is a value that describes how much peer $i$ trusts that remote peer $j$ will provide a \textit{good service}~\cite{sort}.
 We compute the $st_{i, j}$ in the equation~\ref{eq:service-trust} by weighing local experience with peer's $j$ service, with the reputation $j$ got from the network when it was first seen by $i$.
-The used weight is the size of the service interaction history $sh_{i,j}$ to maximal history size $sh_{max}$.
+The used weight is the size of the service interaction history $sh_{i,j}$ to global maximal history size $sh_{max}$.
 
 \begin{equation}
 \label{eq:service-trust}
