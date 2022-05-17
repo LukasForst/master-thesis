@@ -136,7 +136,8 @@ The last part - $CSS$ - simulates the static strategy described in strategy $Eve
 The weights $w_{0}, w_{1}, w_{2}$ in the equation~\ref{equation:strategies-weights}, are designed to gather as much confidence as possible. $w_{0}$ is the confidence of the aggregated network data, essentially saying how much is the network sure about the given score. 
 $w_{1}$ is the confidence coming from the local IPS and the $w_{2}$ is the remaining confidence to $1$.
 
-When we have the weights, we can compute final $s^{k}_{i, j}$ where we use strategies - $w_{0} \cdot \ref{subsec:distance-based-eval}$, $w_{1} \cdot \ref{subsec:use-local-threat-to-evaluate}$ and $w_{2} \cdot \ref{subsec:same-eval-for-all-interactions}$. 
+We use the calculations from sections~\ref{subsec:distance-based-eval}, \ref{subsec:use-local-threat-to-evaluate} and \ref{subsec:same-eval-for-all-interactions} multiplied by the weights $w_0$, $w_1$ and $w_2$ respectively.
+
 \begin{equation}
 \begin{split}
     s^{k}_{i, j} &= \\
