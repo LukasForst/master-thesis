@@ -19,6 +19,13 @@ The messages and API calls are consumed using JSON~\cite{json} data format.
 Redis is an in-memory data structure store that supports asynchronous channels and a publish-subscribe model \cite{redis}.
 We choose to employ Redis channels as the medium that allows communication between the network layer and Fides and allows them to use their respective APIs because Slips already uses Redis for its internal communication between modules. It brings no additional overhead to run Fides with its network layer.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\textwidth]{assets/architecture_internet.jpeg}
+    \caption{Caption}
+    \label{fig:high-leve-architecture-communication}
+\end{figure}
+
 \include{chapters/chap4-architecture/network}
 
 \include{chapters/chap4-architecture/implementation}
