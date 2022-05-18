@@ -24,7 +24,7 @@ The implementation is split into multiple Python packages. The package $evaluati
 $evaluation.recommendation$ package contains all computations that are related to the recommendations and reputation as described in Section~\ref{subsec:recommendation-trust-metric}.
 Similarly, the package $evaluation.service$ stores algorithm for computing the service trust described in Section~~\ref{subsec:service-trust}.
 The package $messaging$ is a connector that allows Fides to send and receive data from the Redis and thus from the Iris.
-There is a $network\_bridge.py$ which allows Fides to send a message to Iris and Slips via Redis and $message_handler.py$ which on the other hand is designed for receibing, semant
+There is a $network\_bridge.py$ which allows Fides to send a message to Iris and Slips via Redis and $message_handler.py$ which on the other hand is designed for receibing, synta
 
 In the end, we wrote $6058$ lines of code in total where the trust model Fides itself accounts for $2691$ lines. The rest of the implementation is related to the unit tests, integration tests, simulation framework and the simulations.
 We also set up a simple continuous integration pipeline for executing the unit and integration tests in GitHub.
