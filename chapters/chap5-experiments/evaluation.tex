@@ -7,7 +7,7 @@ An important part of the experiments is how to evaluate which one is better. We 
 \label{subsec:target-detection-performance-metric}
 First metric measures performance of the target detection $tdp$.
 We compute $tdp$ in equation~\ref{eq:target_detection_metric} as an average distance between the ground truth for the target and the final detection made by Fides at the end of the simulation.
-We use the following notation: $\tau$ is the set of targets in the simulation, $GS_{T}$ is the ground truth score of the target, $S^{k_{max}}_{T}$ is then the aggregated score~(\ref{sec:network-intelligence-aggregation}) for the given target computed by Fides at the end of the simulation.
+We use the following notation: $\tau$ is the set of targets in the simulation, $GS_{T}$ is the ground truth score of the target, $S^{k_{max}}_{T}$ is then the aggregated score (section~\ref{sec:network-intelligence-aggregation}) for the given target computed by Fides at the end of the simulation.
 
 \begin{equation}
 \begin{split}
@@ -17,14 +17,14 @@ We use the following notation: $\tau$ is the set of targets in the simulation, $
 \end{equation}
 
 \noindent
-This metric gives us an information how good was Fides in computing the score (malicious / benign) for some target.
+This metric provides information on how good Fides was in computing the score (malicious / benign) for some target.
 It holds that $0 \leq tdp \leq 2$ where $0$ is the best detection and $2$ is the worst detection.
 Moreover, if $tdp \le 1$ the Fides was on average able identify all targets correctly.
 
 \subsection{Peer's Behavior Detection Performance Metric}
 \label{subsec:peers-behavior-detection-performance-metric}
 
-Peer's behavior detection performance metric $pbdp$ measures how close was trust model's service trust value for the remote peer to the peer's real behavior in the simulation.
+The peer's behavior detection performance metric $pbdp$ measures how close was the trust model's service trust value for the remote peer to the peer's real behavior in the simulation.
 We measure it in~\ref{eq:peers_behavior_detection_metric} as an average distance between computed service trust and the ground truth behavior of the peer in the simulation.
 
 \begin{equation}
