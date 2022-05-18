@@ -4,8 +4,9 @@ Because Fides was designed to integrate with Slips, we were constrained by the S
 
 The code is versioned by Git~\cite{git} and published on GitHub~\cite{github} in the repository \textit{\href{https://github.com/stratosphereips/fides}{github.com/stratosphereips/fides}}~\cite{fidesGithub}.
 We chose to use Conda~\cite{conda} for managing the dependencies and Python versions.
+Fides package structure is then following:
 
-\vspace{0.5mm}
+\vspace{5mm}
 \dirtree{%
 .1 fides.
 .2 evaluation.
@@ -17,7 +18,9 @@ We chose to use Conda~\cite{conda} for managing the dependencies and Python vers
 .2 protocols.
 .2 utils.
 }
-\vspace{0.5mm}
+\vspace{5mm}
+
+The implementation is split into multiple Python packages. The package $evaluation$ contains all necessary algorithms for any data evaluation - all interaction evaluation strategies (Section~\ref{sec:interaction-evaluation-strategies}) can be found in the file $ti\_evaluation.py$, all methods for aggregating threat intelligence  (Section~\ref{sec:network-intelligence-aggregation}) in the file $ti\_aggregation.py$.
 
 We wrote $6058$ lines of code in total where the trust model Fides itself accounts for $2691$ lines. The rest of the implementation is related to the unit tests, integration tests, simulation framework and the simulations.
 We also set up a simple continuous integration pipeline for executing the unit and integration tests in GitHub.
