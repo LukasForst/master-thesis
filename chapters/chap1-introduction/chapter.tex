@@ -17,17 +17,17 @@ However, all of these traditional threat intelligence sources are, in the end, c
 
 To limit the impact of one organization shutting down the database, we can use a peer-to-peer (P2P) model and remove the central authority and single point of failure.
 In peer-to-peer networks, each peer has the same privileges and ca data are generated, shared, and consumed by each peer in the network.
-Although P2P models solve the problem of a single central authority, it may introduce new problems. The most important questions to ask are: first, how much can each peer trust the threat intelligence received from other peers, given that their reliability changes? Second, how to deal with peers providing contradicting information when a single aggregated value is needed? Third, how to deal with adversarial peers that lie in many different ways?
+Although P2P models solve the problem of a single central authority, it may introduce new problems. The most important questions to ask are: first, how much can each peer trust the threat intelligence received from other peers, given that their reliability changes? Second, how to deal with peers providing contradictory information when a single aggregated value is needed? Third, how to deal with adversarial peers that lie in many different ways?
 
 In this thesis, we answer those questions and tackle the problem of trust relationships when sharing security threat intelligence data.
 The algorithms that tackle trust relationships between multiple entities are called \textit{trust models}~\cite{wang2003trust}.
 The research field of trust models is not new, and there are many existing trust models~\cite{abera2019sadan, sort, christensen2014hybrid, 1562680, huynh2006integrated, kamvar2003eigentrust, li2014design, pinyol2013computational, xiong2004peertrust}.
-However, these models were primarily designed to support file sharing in peer-to-peer networks and inherently operate with different kinds of data. Almost no P2P system was designed to fulfill the purposes of the security community.
-An exemption to them is Dovecot~\cite{dita}, a local P2P trust model designed to operate with threat intelligence data but a limitation to operate only in the local networks.
+However, these models were primarily designed to support file sharing in peer-to-peer networks and inherently operate with different types of data. Almost no P2P system was designed to fulfill the purposes of the security community.
+An exemption to them is Dovecot~\cite{dita}, a local P2P trust model designed to operate with threat intelligence data, but with the limitation that operates only in the local networks.
 
 This thesis proposes a new trust model called \textbf{Fides}\footnote{Fides was named after the ancient goddess of trust and good faith~\cite{enwiki:1086924565}.}.
 Fides is a \textit{generic} trust model fine-tuned for sharing threat intelligence in highly adversarial global peer-to-peer networks of intrusion prevention agents.
-Fides was built by solving most of the problems of previous state-of-the-art trust models~\cite{sort, dita} and it is optimized for a broad spectrum of networks; from local networks controlled by a single company, to public global Internet peer-to-peer networks where anybody can join and leave at any time.
+Fides was built by solving most of the problems of previous state-of-the-art trust models~\cite{sort, dita} and is optimized for a broad spectrum of networks; from local networks controlled by a single company, to public global Internet peer-to-peer networks where anybody can join and leave at any time.
 
 Fides works with the concept of peers that belong to specific \textit{organizations} and allows administrators to pre-trust specific peers and organizations. This pre-trusting is a novel feature of Fides, representing the common criteria of security practitioners of trusting some groups or companies more then others. The comprehensive configuration options enable administrators to share data only with particular organizations. This data filtering guarantees that no privacy-sensitive intelligence is shared with peers that should not have access to it.
 
