@@ -70,9 +70,10 @@ Thus, whenever the peer is asked to provide threat intelligence, it responds wit
 \label{subsubsec:malicious-peer}
 The malicious peer is going to provide wrong threat intelligence intentionally to achieve their goal of influencing the trust decisions of the local peer. 
 The sampling data are the same as for the \textit{confident incorrect} (section~\ref{tab:confident-incorrect}) behavior, but the difference is that the malicious peer is providing misleading data intentionally.
-Moreover, intelligent malicious peer knows, that it is in their incentive to gain the service trust at the beginning in order to influence the decisions of the trust model in the later stages. We simulate this by introducing a grace period when the malicious peer does not lie, but rather behaves like any other nom
+Moreover, intelligent malicious peer knows, that it their incentive is to gain the service trust at the beginning in order to more impact the decisions of the trust model in the later stages. 
+We simulate this by introducing a grace period when the malicious peer does not lie, but rather behaves like any other normal peer. This period then allows the malicious peers to gain the initial trust. After that period, they start to lie and thanks to the initial trust, they can influence the Fides's decisions with a larger impact.
 
-This behavior simulates knowledgeable adversaries that are able to follow the Fides's protocol and their goal is to influence decisions of the local trust model.
+As stated before, this behavior simulates knowledgeable adversaries that are able to follow the Fides's protocol and their goal is to influence decisions of the local trust model.
 The adversaries can be either trying to \textit{bad-mouth} or provide \textit{unfair praises}.
 In our case, it does not matter why they do that, but rather the fact, that they do that intentionally and that they are providing the opposite of the baseline score with the high confidence.
 
