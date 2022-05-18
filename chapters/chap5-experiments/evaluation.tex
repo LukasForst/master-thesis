@@ -51,7 +51,7 @@ For that reason, $shift = -1$ for malicious and incorrect peers and $shift = 1$ 
 
 \subsection{Environment Hardness}
 \label{subsec:environment-hardness}
-In order to be able measure how \textit{hard} it is for Fides to operate in some environment, we designed environment hardness value $eh$.
+In order to be able measure how \textit{hard} it is for Fides to operate in some environment, we designed the environment hardness variable $eh$.
 It holds that $0 \leq eh \leq 10$ and the higher the value is, the easier is for Fides to operate in such environment as there are more confident correct peers that provide correct threat intelligence and recommendations.
 On the contrary, the lower the $eh$ is, the harder it is for Fides to operate as there are more byzantine peers.
 
@@ -63,9 +63,9 @@ On the contrary, the lower the $eh$ is, the harder it is for Fides to operate as
 \end{equation}
 
 \noindent
-Where $P_{CC}$ is a set of peers in simulation that behave like a confident correct~(\ref{subsubsec:confident-correct-peer}) peer and $P_{UP}$ that behave like uncertain peer~(\ref{subsubsec:uncertain-peer}).
+Where $P_{CC}$ is a set of peers in simulation that behave like a confident correct (section~\ref{subsubsec:confident-correct-peer}) peer and $P_{UP}$ that behave like an uncertain peer (section~\ref{subsubsec:uncertain-peer}).
 
-\section{Simulations Execution}
+\section{Simulation Execution}
 \label{sec:simulations-execution}
 The simulations and experiments were designed to evaluate the trust model in multiple ways and environments.
 In order to run arbitrary scenarios, we developed a framework, that allows us to simulate virtually any environment with various combinations of Fides configuration.
