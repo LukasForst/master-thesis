@@ -29,11 +29,11 @@ This thesis proposes a new trust model called \textbf{Fides}\footnote{Fides was 
 Fides is a \textit{generic} trust model fine-tuned for sharing threat intelligence in highly adversarial global peer-to-peer networks of intrusion prevention agents.
 Fides was built by solving most of the problems of previous state-of-the-art trust models~\cite{sort, dita} and it is optimized for a broad spectrum of networks; from local networks controlled by a single company, to public global Internet peer-to-peer networks where anybody can join and leave at any time.
 
-Fides works with the concept of peers that belong to specific \textit{organizations} and allows administrators to pre-trust specific peers and organizations. This pre-trusting is a novel feature of Fides, representing the common criteria of security practitioners of trusting some groups or companies more then others. 
+Fides works with the concept of peers that belong to specific \textit{organizations} and allows administrators to pre-trust specific peers and organizations. This pre-trusting is a novel feature of Fides, representing the common criteria of security practitioners of trusting some groups or companies more then others. The comprehensive configuration options enable administrators to share data only with particular organizations. This data filtering guarantees that no privacy-sensitive intelligence is shared with peers that should not have access to it.
 
-The comprehensive configuration options enable administrators to configure data sharing only inside or with particular organizations. This data filtering guarantees that no privacy-sensitive intelligence is shared with peers that should not have access to it.
+Fides considers many security requirements for a global P2P trust model: 
 
-Moreover, Fides was designed to be as modular and generic as possible, allowing other utilization of its computational model for different data than the threat intelligence by simply adding new evaluation methods.
+Fides was designed to be as modular and generic as possible, allowing other use of its computational model for different data than the threat intelligence by simply adding new evaluation methods.
 
 Fides does not create or administer the low-level actions of the peer-to-peer network but instead relies on a different system that performs these operations on the network layer. The system is called \textbf{Iris}. Iris was designed and developed simultaneously in his thesis by Bc. Martin Řepa~\cite{nl} and it facilitates safe and secure communications between Fides instances in the global peer-to-peer network. Communication between the two systems is done via a standard defined interface, which allows replacing the network module Iris if needed.
 
