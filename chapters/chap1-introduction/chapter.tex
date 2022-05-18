@@ -35,7 +35,7 @@ Fides considers many security requirements for a global P2P trust model: pre-tru
 
 Fides was designed to be as modular and generic as possible, allowing other uses of its computational model for different data than threat intelligence by simply adding new evaluation methods.
 
-Fides does not create or administer the low-level actions of the peer-to-peer network but instead relies on a different system that performs these operations on the network layer. The system is called \textbf{Iris}. Iris was designed and developed simultaneously in his thesis by Bc. Martin Řepa~\cite{nl} and it facilitates safe and secure communications between Fides instances in the global peer-to-peer network. Communication between the two systems is done via a standard defined interface, which allows replacing the network module Iris if needed.
+Fides does not create or administer the low-level actions of the peer-to-peer network, but instead relies on a different system that performs these operations on the network layer. The system is called \textbf{Iris}. Iris was designed and developed simultaneously in the thesis by Bc. Martin Řepa~\cite{nl} and it facilitates safe and secure communications between Fides instances in the global peer-to-peer network. Communication between the two systems is done via a standard defined interface, which allows replacing the network module Iris if needed.
 
 To interact with a real intrusion prevention system, we chose Slips~\cite{slips} and implemented a module that allows Slips to use Fides for receiving and sharing threat intelligence over the network. 
 By using this shared global knowledge, Slips can prevent attacks on the local environment even before they happen by acting upon received threat intelligence from other peers in the global network.
@@ -43,7 +43,7 @@ By using this shared global knowledge, Slips can prevent attacks on the local en
 x
 
 The only way to evaluate our trust model was to simulate myriad complex situations. We proved that Fides could correctly uncover the peers' behavior in the network and make sensible decisions about the threat intelligence. 
-Fides especially excels in the situations when it communicates with peers from trusted organizations.
+Fides especially excels in the situations where it communicates with peers from trusted organizations.
 Moreover, in a situation where the Fides talks to at least 25\% of pre-trusted peers, it can eventually determine correct threat intelligence no matter how other peers in the network behave and how many of them are adversarial.
 
 \section{Thesis Structure}
