@@ -60,11 +60,11 @@ Thus, we could not use SORT as is, but rather extend it and modify it.
 \subsection{Related Trust Models}
 \label{subsec:related-trust-models}
 The field of trust models for peer-to-peer networks is not new, and there are many other interesting trust models that attempt to tackle trust relationships between peers.
-In this section, we describe only notable trust models relevant to sharing threat intelligence in the peer-to-peer networks but didn't base our design on them at the end.
+In this section, we describe only notable trust models relevant to sharing threat intelligence in the peer-to-peer networks but did not base our design on them at the end.
 
 Sadan, proposed in~\cite{abera2019sadan}, is a trust model that uses committees and computational challenges to identify malicious peers in the network.
-Sadan requires hardware chips - Trusted Platform Module (TPM), to verify the running software, which allows other peers to verify the trustworthiness of the peer.
-The requirement of TPM chips means that Sadan can not be used as the base for our trust model, as we do not want to limit our solution to specific hardware.
+Sadan requires hardware chips, Trusted Platform Module (TPM), to verify the running software, which allows other peers to verify the trustworthiness of the peer.
+The requirement of TPM chips means that Sadan cannot be used as the base for our trust model, as we do not want to limit our solution to specific hardware.
 
 Xiong and Liu then propose PeerTrust~\cite{xiong2004peertrust}, which uses a transaction-based feedback system to determine the reputation and trust of the peers.
 Even though the model is generic and was designed for peer-to-peer networks, it was optimized for \textit{e-commerce communities} that inherently have completely different behavior than the network for sharing threat intelligence, which needs to protect itself from the malicious peers.
