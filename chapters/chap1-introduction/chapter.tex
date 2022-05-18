@@ -15,9 +15,9 @@ When protecting the local networks, the basic firewalls and advanced Intrusion P
 Such sources can be, for example, public blocklists ~\cite{abuseipdb, dataplane, binarydefense} or centralized collaborative databases such as MISP~\cite{wagner2016misp} where the community collectively shares the threat intelligence.
 However, all of these traditional threat intelligence sources are, in the end, controlled by the centralized authority, which has complete control over the resource and can at anytime restrict access to these valuable assets or censor what is published and what is not.
 
-To limit the impact of one organization shutting down the database, we can utilize the peer-to-peer model and remove the central authority and a single point of failure.
-In the peer-to-peer networks, each peer has the same privileges, and the data are generated, shared, and consumed by each peer in the network.
-Although this approach solves the problem of a single central authority, it introduces new problems. The crucial question is how much can each peer trust the threat intelligence that it received from other peers? And also, what if two peers provide contradicting information? How can a peer aggregate two opinions into a single decision?
+To limit the impact of one organization shutting down the database, we can use a peer-to-peer (P2P) model and remove the central authority and single point of failure.
+In peer-to-peer networks, each peer has the same privileges, and the data are generated, shared, and consumed by each peer in the network.
+Although P2P models solve the problem of a single central authority, it may introduces new problems. The crucial question is how much can each peer trust the threat intelligence that it received from other peers? And also, what if two peers provide contradicting information? How can a peer aggregate two opinions into a single decision?
 
 In this thesis, we answer those questions and tackle the problem of trust relationships when sharing threat intelligence.
 The algorithms that tackle trust relationships between multiple entities are called \textit{trust models}~\cite{wang2003trust}.
