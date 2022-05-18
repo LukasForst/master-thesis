@@ -1,11 +1,11 @@
 \section{Experiments Evaluation}
 \label{sec:experiments-evaluation}
 
-An important part of the experiments is how to evaluate which one is better. We will be measuring two performance metrics that are relevant for each situation.
+An important part of the experiments is how to evaluate which configuration of parameters is better in which scenario. We will be measuring two performance metrics that are relevant for each situation.
 
 \subsection{Target Detection Performance Metric}
 \label{subsec:target-detection-performance-metric}
-First metric measures performance of the target detection $tdp$.
+This first metric, $tdp$, measures performance of the target detection.
 We compute $tdp$ in equation~\ref{eq:target_detection_metric} as an average distance between the ground truth for the target and the final detection made by Fides at the end of the simulation.
 We use the following notation: $\tau$ is the set of targets in the simulation, $GS_{T}$ is the ground truth score of the target, $S^{k_{max}}_{T}$ is then the aggregated score (section~\ref{sec:network-intelligence-aggregation}) for the given target computed by Fides at the end of the simulation.
 
