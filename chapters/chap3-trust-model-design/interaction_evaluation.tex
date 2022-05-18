@@ -3,7 +3,7 @@
 In order to determine which remote peers are providing valuable data and which peers are not, the local peer needs to be able to evaluate each interaction it had with the remote peer.
 In general, there are two options for how to approach this, (i) by designing an evaluation that is protocol-aware (i.e. it understands the protocol and the data that the two peers shared ); or (ii) by having an evaluation function that does not need to understand the protocol and can be used for any type of data.
 
-We choose to implement both approaches and they are described in the following sections. In order to evaluate which strategy is better in what scenarios, we designed and run many simulations - their results are described in the chapter \ref{ch:experiments}. 
+We choose to implement both approaches and they are described in the following sections. In order to evaluate which strategy is better in what scenarios, we designed and run many simulations - their results are described in the Chapter~\ref{ch:experiments}. 
 We will use the notation from the table (\ref{table:interaction-eval})  when referring to peers and their interactions.
 
 \begin{table}[h!]
@@ -71,7 +71,7 @@ The problem with this evaluation algorithm is the situations where the aggregate
 In order to compensate for the low confidence, $C^{k}_{T}$ and in order not to penalize all peers in the algorithm explained in Section~\ref{subsec:distance-based-eval}, this evaluation strategy considers $C^{k}_{T}$ value and employs the $DistanceBasedTIEvaluation$ only when $C^{k}_{T}$ is \textit{"high enough"}. In this case \textit{"high enough"} means higher than a value ${CT}$, configured by the Slips administrator.
 In a case when  $C^{k}_{T} < {CT}$, the algorithm fallbacks to using $EvenTIEvaluation$, because it is not possible to distinguish between \textit{"good"} and \textit{"bad"} network intelligence due to low confidence in the decision. 
 This strategy is implemented in Fides under the name $ThresholdTIEvaluation$.
-What should be the correct value for $CT$ from the configuration is subject to evaluation in the simulations in chapter~\ref{ch:experiments}.
+What should be the correct value for $CT$ from the configuration is subject to evaluation in the simulations in Chapter~\ref{ch:experiments}.
 
 \begin{algorithm}
 \caption{$ThresholdTIEvaluation$}\label{alg:threshold-ti-evaluation}
@@ -133,7 +133,7 @@ The last part - $CSS$ - simulates the static strategy described in strategy $Eve
     w_{2} &= 1 - w_{0} - w_{1}
 \end{split}
 \end{equation}
-The weights $w_{0}, w_{1}, w_{2}$ in the equation~\ref{equation:strategies-weights}, are designed to gather as much confidence as possible. $w_{0}$ is the confidence of the aggregated network data, essentially saying how much is the network sure about the given score. 
+The weights $w_{0}, w_{1}, w_{2}$ in the Equation~\ref{equation:strategies-weights}, are designed to gather as much confidence as possible. $w_{0}$ is the confidence of the aggregated network data, essentially saying how much is the network sure about the given score. 
 $w_{1}$ is the confidence coming from the local IPS and the $w_{2}$ is the remaining confidence to $1$.
 
 We use the calculations from Sections~\ref{subsec:distance-based-eval}, \ref{subsec:use-local-threat-to-evaluate} and \ref{subsec:same-eval-for-all-interactions} multiplied by the weights $w_0$, $w_1$ and $w_2$ respectively.
