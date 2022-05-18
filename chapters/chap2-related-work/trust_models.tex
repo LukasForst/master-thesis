@@ -17,8 +17,8 @@ We took both analyses into account when researching existing implementations of 
 
 \subsection{Dovecot}
 \label{subsec:dovecot}
-Dovecot is a trust model developed by Dita Hollmannová in~\cite{dita}.
-This trust model was designed explicitly for Slips to share threat intelligence in the \textit{local} peer-to-peer networks.
+Dovecot is a trust model developed by Dita Hollmannová~\cite{dita}.
+This trust model was designed explicitly for Slips to share threat intelligence in \textit{local} peer-to-peer networks.
 Dovecot counts interactions between the peers, and the more interaction peers have, they have a higher base for trust.
 This design is based on the Sality botnet~\cite{falliere2011sality}, where botnet peers were storing the \textit{goodcount} that counted the number of interactions between each other.
 The idea behind this is simple yet very effective. The more peers talk to each other, the more they are trusted.
