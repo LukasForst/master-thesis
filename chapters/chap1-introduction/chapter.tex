@@ -14,10 +14,10 @@
 When protecting local networks, the basic firewalls and advanced Intrusion Prevention Systems (IPS)~\cite{zhang2004intrusion} rely on evidence-based knowledge about past cyberattacks, known as threat intelligence~\cite{threatintelligence}. Threat intelligence is primarily generated from the previous attacks locally or received from the remote sources.
 Such sources can be, for example, public blocklists ~\cite{abuseipdb, dataplane, binarydefense} or centralized collaborative databases such as MISP~\cite{wagner2016misp} where the community collectively shares the threat intelligence.
 However, all of these traditional threat intelligence sources are, in the end, controlled by the centralized authority, which has complete control over the resource and can at anytime restrict access to these valuable assets or censor what is published and what is not.
-In addition, central authorities 
+In addition to that, central authorities allows publishing of threat intelligence only to \textit{verified} entities and not everyone can contribute. Thus, there are many systems that were left out even though they might have precious knowledge about past attacks.
 
-To limit the impact of one organization shutting down the database, we can use a peer-to-peer (P2P) model and remove the central authority and single point of failure.
-In peer-to-peer networks, each peer has the same privileges and ca data are generated, shared, and consumed by each peer in the network.
+To limit the impact of one organization shutting down the database and many other problems outlined above, we can use a peer-to-peer (P2P) model and remove the central authority and single point of failure.
+In peer-to-peer networks each peer has the same privileges and can freely share and receive any data without any central authority.
 Although P2P models solve the problem of a single central authority, it may introduce new problems. The most important questions to ask are: first, how much can each peer trust the threat intelligence received from other peers, given that their reliability changes? Second, how to deal with peers providing contradictory information when a single aggregated value is needed? Third, how to deal with adversarial peers that lie in many different ways?
 
 In this thesis, we answer those questions and tackle the problem of trust relationships when sharing security threat intelligence data.
@@ -28,7 +28,9 @@ An exemption to them is Dovecot~\cite{dita}, a local P2P trust model designed to
 
 This thesis proposes a new trust model called \textbf{Fides}\footnote{Fides was named after the ancient goddess of trust and good faith~\cite{enwiki:1086924565}.}.
 Fides is a \textit{generic} trust model fine-tuned for sharing threat intelligence in highly adversarial global peer-to-peer networks of intrusion prevention agents.
-Fides was built by solving most of the problems of previous state-of-the-art trust models~\cite{sort, dita} and is optimized for a broad spectrum of networks; from local networks controlled by a single company, to public global Internet peer-to-peer networks where anybody can join and leave at any time.
+Fides was built by solving most of the problems of previous state-of-the-art trust models~\cite{sort, dita}
+
+and is optimized for a broad spectrum of networks; from local networks controlled by a single company, to public global Internet peer-to-peer networks where anybody can join and leave at any time.
 
 Fides works with the concept of peers that belong to specific \textit{organizations} and allows administrators to pre-trust specific peers and organizations. This pre-trusting is a novel feature of Fides, representing the common criteria of security practitioners of trusting some groups or companies more than others. The comprehensive configuration options enable administrators to share data only with particular organizations. This data filtering guarantees that no privacy-sensitive intelligence is shared with peers that should not have access to it.
 
