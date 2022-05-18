@@ -3,14 +3,14 @@
 \label{sec:fides-resilience}
 
 In order to evaluate Fides's resilience in many different scenarios, we wanted to discover what is the Fides's configuration of interaction evaluation strategy (section~\ref{sec:interaction-evaluation-strategies}), threat intelligence aggregation function (section~\ref{sec:network-intelligence-aggregation}) and initial reputation (section~\ref{subsubsec:computing-reputation}) that should be used in order to correctly classify targets in \textit{any} network topology.\footnote{Distribution of correct/uncertain/incorrect/malicious peers in the network.}
-In other words, what setup should Fides's administrator use in order for Fides to guarantee that it will be able to \textit{eventually} classify targets correctly.
+In other words, what setup should the Fides's administrator use in order for Fides to guarantee that it will be able to \textit{eventually} classify targets correctly.
 
-We discovered that the situation, when the administrator uses a particular setup which then guarantees that Fides will be able to eventually classify the targets, exists. When Fides communicates with at least 25\% of pre-trusted peers from its own network ($0.25 \cdot |P|$ are pre-trusted) and uses $DistanceBasedTIEvaluation$~(\ref{subsec:distance-based-eval}) for evaluating the interactions in combination with $AverageConfidenceTIAggregation$~(\ref{subsec:AverageConfidenceTIAggregation}) for aggregating the threat intelligence, it is able to classify the targets correctly no matter what is happening in the network.
+We discovered that the situation, when the administrator uses a particular setup which then guarantees that Fides will be able to eventually classify the targets, exists. When Fides communicates with at least 25\% of pre-trusted peers from its own network ($0.25 \cdot |P|$ are pre-trusted) and uses $DistanceBasedTIEvaluation$ (section~\ref{subsec:distance-based-eval}) for evaluating the interactions in combination with $AverageConfidenceTIAggregation$ (section~\ref{subsec:AverageConfidenceTIAggregation}) for aggregating the threat intelligence, it is able to classify the targets correctly no matter what is happening in the network.
 
 \subsection{Correct Target Identification Under Harsh Conditions}
 \label{subsec:correct-target-identification-no-matter-what}
 
-The figure~\ref{fig:performance-all-setups-25-pretrusted} visualizes this situation where there are 25\% of pre-trusted peers in the network and shows how different configurations perform under different network distributions.
+Figure~\ref{fig:performance-all-setups-25-pretrusted} visualizes this situation where there are 25\% of pre-trusted peers in the network and shows how different configurations perform under different network distributions.
 There are three rows and four columns. Each row contains a single interaction evaluation strategy~(\ref{sec:interaction-evaluation-strategies}) and each column is then a single metric that evaluates the behavior of this strategy in the network.
 There are three different metrics that evaluate the performance of the Fides's setup and the last graph then displays how many confident correct~(\ref{subsubsec:confident-correct-peer}) peers there are in the network.
 The horizontal axis in each graph measures the environment hardness explained in the section~\ref{subsec:environment-hardness}.
