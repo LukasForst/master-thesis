@@ -15,8 +15,8 @@ For example, in the \textbf{Dovecot} trust model~\cite{dita}, every peer starts 
 
 On the other hand, the \textbf{Sality} botnet~\cite{falliere2011sality} uses a value called \textit{goodcount} as a counter of good interactions with any other peer, the larger the \textit{goodcount}, the greater trust the local peer has on the remote peer. The goodcount for each new peer starts with $0$ in Sality. Meaning, that the botnet does not trust fresh peers at all and they can gain trust only by following the Sality protocol.
 
-The model of \textit{static initial trust} is easy to implement, but it requires assumptions about the network. If the network is considered \textit{mostly benign}, it might be safe to use an initial trust of $1$, however for highly adversarial networks using an initial trust of $1$ might be dangerous and it is better to use $0$. 
-Using low initial trust and no mechanism how to gain more trust fast means, that the benign peers that joined recently, don't affect the final decisions of the model even though they might have useful information about adversaries.
+The model of \textit{static initial trust} is easy to implement, but it requires assumptions about the network. If the network is considered \textit{mostly benign}, it might be safe to use an initial trust of $1$, however, for highly adversarial networks using an initial trust of $1$ might be dangerous and it is better to use $0$. 
+Using low initial trust and no mechanism to gain more trust fast means that the benign peers that joined recently do not affect the final decisions of the model, even though they might have useful information about adversaries.
 
 Static initial trust is supported by Fides as a form of fallback when no other cold start technique is used. The administrator provides a configuration that contains the initial reputation for each new peer.
 
