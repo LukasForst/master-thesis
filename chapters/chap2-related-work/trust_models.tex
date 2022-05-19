@@ -79,9 +79,9 @@ ECMBTM utilizes cooperation history between peers to compute trust clouds.
 This trust model attempts to mitigate the cold start problem by directly propagating trust to another peer in the network.
 We find the application of this method in our setting problematic because it would be easier for the malicious peers to propagate their false information through the network.
 
-In~\cite{li2014design}, Li et al. employed a machine learning-based trust model for the collaboration of IDS instances.
+In~\cite{li2014design}, Li et al. proposed a machine learning-based trust model for the collaboration of IDS instances.
 Even though this model is closely related to our use case, we cannot use it because it uses a central certificate authority to issue a registration for the new peers. 
-In our design, we want to have a permission-less peer-to-peer network where each peer is equal, and there is no central authority that controls the network and is a single point of failure.
+In our design, we want to have a permission-less peer-to-peer network where each peer is equal, and there is no central authority that controls the network and thus no single point of failure.
 
 \vspace{1cm}
 
