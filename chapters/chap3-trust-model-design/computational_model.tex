@@ -1,6 +1,6 @@
 \section{Computational Model of Fides}
 \label{sec:computational-model}
-This section describes how Fides to whom and how much it can trust other remote peers.
+This section describes how Fides determines to whom and how much it can trust other remote peers.
 Our trust model expresses trust in a specif peer with metrics called \textit{service trust}.
 Service trust is a value that describes how much the local peer can trust a \textit{specific} remote peer. 
 
@@ -9,7 +9,7 @@ Note that there are two main ideas behind most of the equations.
 
 The first one, is that we want to robustly capture the average behavior of the peers. In order to do that, we will be computing the average behavior of the peers and then approximating the deviations from said behavior.
 
-Secondly, we will be comparing and weighing first-hand experience with the remote experience. 
+The second part compares and weights first-hand experience with the remote experience. 
 First-hand experience is what happened between local and remote peers during the time they interacted. This can be, for example, threat intelligence sharing, file-sharing, or the results of the recommendation protocol.
 Remote experience is what happened between one remote peer and another remote peer. In other words, first-hand experience for peer $j$ are actions between $j$ and $z$. Whenever $j$ shares information about these actions with peer $i$, for $i$ it is a remote experience.
 
@@ -176,7 +176,7 @@ When the local peer receives all recommendations, it computes the reputation val
 \end{equation}
 
 \noindent
-The weight, used in the Equation~\ref{eq:reputation-value}, is the average of history sizes in all recommendations to $sh_{max}$, maximal interactions history size. 
+The weight, used in the Equation~\ref{eq:reputation-value}, is the average of history sizes in all recommendations to $sh_{max}$, maximum interactions history size. 
 We calculate $\mu_{sh}$ as follows.
 \begin{equation}
     \mu_{sh} = \frac{1}{|T_{i}|} \sum_{z \in T_{i}} sh_{z, j}
@@ -281,7 +281,7 @@ For the recommendations, Fides implements it exactly the same as for the service
 \end{equation}
 
 \subsubsection{Evaluating Received Recommendation}
-As outlined in the Section~\ref{subsubsec:recommendation-competence-integrity-belief}, in order to evaluate a particular recommendation from remote peer $z$, we have satisfaction, weight, and the fading effect. 
+As outlined in Section~\ref{subsubsec:recommendation-competence-integrity-belief}, in order to evaluate a particular recommendation from remote peer $z$, we have satisfaction, weight, and the fading effect. 
 We calculate the recommendation satisfaction $rs^{x}_{i,z}$ by comparing values from $z$'s recommendation $r_{z,j}$, $cb_{z,j}$, $ib_{z,j}$, with values that are the results of the the recommendation algorithm.
 In other words, we compare each recommendation, with the aggregated values - $er_{i,j}$, $ecb_{i,j}$ and $eib_{i,j}$. This gives us an estimate of how off was the peer $z$'s recommendation from the final result of the recommendation algorithm.
 
