@@ -21,17 +21,17 @@ We discovered that actually there \textbf{exists} a particular setup that guaran
 
 We included the graph of this case, similar to the Figure~\ref{fig:single-simulation-example}, with this particular \textit{"winning"} setup in the most hostile environment to the appendix in Figure~\ref{fig:worst-best-scenario}. For the explanation of the graph see Section~\ref{sec:general-overview-of-simulation-output}.
 
-Interestingly, in this particular case, the initial reputation does not affect the final outcome of the simulation, but it does affect the progress as when using an initial reputation higher than $0$, Fides provides wrong scores in the situation when the malicious peers started to lie.
-However, it discovers that the peers are lying, which decreases their service trust and is able to eventually recover the correct labels for the targets.
-The score value over time for this situation can be seen on the Figure~\ref{fig:missclassification-score-only}.
-We included the whole graph in the appendix in Figure~\ref{fig:missclassification-recovery}.
-
-\begin{figure}[ht]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{assets/misclassification_score.png}
     \caption{Score in figure~\ref{fig:missclassification-recovery}.}
     \label{fig:missclassification-score-only}
 \end{figure}
+
+Interestingly, in this particular case, the initial reputation does not affect the final outcome of the simulation, but it does affect the progress as when using an initial reputation higher than $0$, Fides provides wrong scores in the situation when the malicious peers started to lie.
+However, it discovers that the peers are lying, which decreases their service trust and is able to eventually recover the correct labels for the targets.
+The score value over time for this situation can be seen on the Figure~\ref{fig:missclassification-score-only}.
+We included the whole graph in the appendix in Figure~\ref{fig:missclassification-recovery}.
 
 With no pre-trusted peers in the network, the results of each configuration vary and they highly depend on the network topology as well as on the knowledge of the local Slips instance. The results for the no pre-trusted scenario are shown in Appendix Figure~\ref{fig:performance-all-setups-0-pretrusted}.
 

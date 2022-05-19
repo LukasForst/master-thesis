@@ -59,7 +59,7 @@ On the left side, one can see the peer's behavior detection performance metric t
 On the right side, we show the peer's average trust metric. That is an average trust of Fides for each peer. We include this metric in order to see how much trust was Fides able to obtain for the peers in the network.
 It is important to note, that there is no \textit{correct} or \textit{desired} value of this metric, because for example in the environment where there are all peers confident correct, the peer's average trust should be high, but in the environment with all byzantine peers, this metric should be low because Fides should not trust incorrect and malicious peers.
 
-As suggested in the previous section while measuring target detection performance, the right graph for $DistanceBasedTIEvaluation$ in combination with $AverageConfidenceTIAggregation$ shows, that this setup is unable to determine trust for the peers and has average peer's trust close to $0$. This means that the trust model will almost always aggregate threat intelligence to score $0$ with confidence $0$ making it useless. 
+As suggested in the previous section while measuring target detection performance, the right graph for $DistanceBasedTIEvaluation$ in combination with $AverageConfidenceTIAggregation$ shows, that this setup is unable to determine trust for the peers and has average peer's trust close to $0$. This means that the trust model will almost always aggregate threat intelligence to score $0$ with confidence $0$ making it, in a fact, useless. 
 
 \cleartoleftpage
 \subsection{Scenario With 25\% of Pre-Trusted Peers}
@@ -82,6 +82,9 @@ Specifically in Figure~\ref{fig:25-target-detection} one can see that until the 
 That changes after the environment hardness $eh \leq 2.5$ when the $ThresholdTIEvaluation$ as well as $MaxConfidenceTIEvaluation$ misclassify the targets and the $tdp \geq 1$. In that case, all threat intelligence aggregation methods are the same and all of them misclassify the targets no matter what initial reputation is used.
 However, the $DistanceBasedTIEvaluation$ strategy in combination with $AverageConfidenceTIAggregation$ method is able to still classify the targets correctly and maintain the $tdp \leq 1$ even under toughest conditions where there are 75\% of adversarial peers in the simulation.
 
+When Fides used the threat intelligence aggregation method $WeightedAverageConfidenceTIAggregation$, it misclassified the targets in one situation.
+Thus, this method does not provide a guarantee that Fides will end up with correct classifications for every target.
+
 
 \cleartoleftpage
 \subsubsection{Peers Behavior Detection Performance}
@@ -94,12 +97,3 @@ However, the $DistanceBasedTIEvaluation$ strategy in combination with $AverageCo
 \end{figure}
 
 TODO
-
-% It is clear from Figure~\ref{fig:distance-detection-detail-25}, that when Fides used the threat intelligence aggregation method $WeightedAverageConfidenceTIAggregation$~(\ref{subsec:WeightedAverageConfidenceTIAggregation}), it miss-classified the targets in one situation.
-% Thus, this method does not provide a guarantee that Fides will end up with correct classifications for every target.
-
-% The same applies to all other interaction evaluation methods as we can see in the Figure~\ref{fig:performance-all-setups-25-pretrusted} that in the hardest environment, they all classified the targets poorly with all threat intelligence aggregation methods.
-
-% \subsection{Scenarios of No pre-trusted peers, and 50\% pre-trusted peers}
-% \label{subsec:resilience-under-different-conditions}
-% Other two important scenarios to consider are the situations where the administrator does not have any pre-trusted peers and when at least 50\% of peers are pre-trusted.
