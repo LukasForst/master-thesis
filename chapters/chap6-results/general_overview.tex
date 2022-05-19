@@ -31,7 +31,7 @@ The score graph contains two different targets, one that is according to the gro
 We also included the moving average value (indicated as MM) within the window of 10 clicks to make the graph clear.
 In a perfect scenario, we would see two straight lines where for benign target (\textit{google.com}) would be the line in $S^{k}_{T} = 1$ and for the malicious target (\textit{evil.com}) in $S^{k}_{T} = -1$.
 However, in the imperfect world, we can see that the lines fluctuate according to the score the Fides received from the peers.
-In a case, when the lines cross, and the benign target ends up below the red line ($S^{k}_{T}  -1$
+In a case, when the lines cross, and the benign target ends up below the red line ($S^{k}_{T} \leq -1$
 
 Finally, the third graph, displays the aggregated confidence $C^{k}_{T}$ (Section~\ref{sec:network-intelligence-aggregation}) over time (\textit{clicks}).
 The graph is similar to the score, we include raw values for each time window and target, as well as the moving average within the window of 10 clicks.
