@@ -30,9 +30,9 @@ The score was calculated by Fides at click $k$ for target $T$.
 The score graph contains two different targets, one that is according to the ground truth malicious and a second one that was benign.
 We also included the moving average value (indicated as MM) within the window of 10 clicks to make the graph clear.
 
-Finally, third graph, displays the aggregated confidence $C^{k}_{T}$ (Section~\ref{sec:network-intelligence-aggregation}) over time (\textit{clicks}).
-The graph is similar to the score, we include raw values for each time window and target as well as the moving average within the window of 10 clicks.
+Finally, the third graph, displays the aggregated confidence $C^{k}_{T}$ (Section~\ref{sec:network-intelligence-aggregation}) over time (\textit{clicks}).
+The graph is similar to the score, we include raw values for each time window and target, as well as the moving average within the window of 10 clicks.
 
 In this example output graph, it can be seen that Fides was clearly able to identify that the malicious peer started to lie after click 25 because of the service trust $st^{k}_{i,j}$ for this peer that fell down almost instantly.
 At the same time, we can see that on the score graph, the $S^{k}_{T}$ for both targets were skewed and started to get closer to $0$ because the malicious peer had already gained service trust and thus the threat intelligence provided by it had an impact on the final $S^{k}_{T}$.
-However, after Fides figured out, that the peer is lying, it lowered its service trust for this peer and the score started to recover closer to the baseline.
+However, after Fides identified that the peer is lying, it lowered the service trust for this peer, and the score started to recover closer to the baseline.
