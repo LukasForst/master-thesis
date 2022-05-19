@@ -235,10 +235,10 @@ Essentially making it information that came from the \textit{second ring of trus
 
 \subsection{Recommendation Trust Metric}
 \label{subsec:recommendation-trust-metric}
-Recommendation trust - $rt_{i,z}$ - is another metric that a peer calculate and store. It expresses how much does $i$ trust that $z$ provides \textit{good recommendations}.
+Recommendation trust - $rt_{i,z}$ - is another metric that a peer calculates and stores. It expresses how much does $i$ trust that $z$ provides \textit{good recommendations}.
 Even though one could theoretically use service trust $st_{i, z}$ for this,
 we have another trust metric because there are peers that can provide very good data (service), but they are surrounded by bad peers or the other way around.
-This also gives us the ability to have specialized nodes in the network, that serves as a peers registry for organizations - a single node that only provides recommendations on peers.
+This also gives us the ability to have specialized nodes in the network that serves as a peers registry for organizations - a single node that only provides recommendations on peers.
 
 We calculate the recommendation trust in a similar way as the service trust and reputation, but we use recommendation competence belief $rcb_{i, z}$, recommendation integrity belief $rib_{i,z}$ and reputation $r_{i, z}$.
 This time, we use the weight $rh_{i,z}$, which is the size of the history of the recommendations provided by $z$ to $i$, and $rh_{max}$, the maximal size of said history.
