@@ -1,4 +1,4 @@
-\section{Fides Resilience}
+\section{Evaluation of Fides Resilience in Different Scenarios}
 \label{sec:fides-resilience}
 
 To evaluate the resilience of Fides in different scenarios, we need to find the optimal configuration for the following parameters in Fides: interaction evaluation strategy (Section~\ref{sec:interaction-evaluation-strategies}), threat intelligence aggregation function (Section~\ref{sec:network-intelligence-aggregation}) and initial reputation (Section~\ref{subsubsec:computing-reputation}). Each combination of parameters is evaluated in its capacity to correctly classify targets in \textit{any} network topology.\footnote{Distribution of correct/uncertain/incorrect/malicious peers in the network.}
@@ -9,7 +9,7 @@ We discovered that actually there \textbf{exists} a particular setup that guaran
 \subsection{Correct Target Identification Under Harsh Conditions}
 \label{subsec:correct-target-identification-no-matter-what}
 
-Figure~\ref{fig:performance-all-setups-25-pretrusted} visualizes this situation where there are 25\% of pre-trusted peers in the network and shows how different configurations perform under different network distributions.
+The first scenario that was evaluated was when the network has 25\% of pre-trusted peers. Several configurations were simulated, which results are shown in Figure~\ref{fig:performance-all-setups-25-pretrusted}.
 There are three rows and four columns. Each row contains a single interaction evaluation strategy (Section~\ref{sec:interaction-evaluation-strategies}) and each column is then a single metric that evaluates the behavior of this strategy in the network.
 There are three different metrics that evaluate the performance of the Fides's setup and the last graph displays how many confident correct (Section~\ref{subsubsec:confident-correct-peer}) peers there are in the network.
 The horizontal axis in each graph measures the environment hardness explained in Section~\ref{subsec:environment-hardness}.
