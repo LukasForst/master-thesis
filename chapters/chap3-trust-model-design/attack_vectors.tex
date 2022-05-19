@@ -2,11 +2,11 @@
 \label{sec:attack-vectors}
 Since Fides is a trust model that computes how much to trust peers, it is potentially open to attacks from adversarial peers. Adversarial peers are peers that know how to talk the protocol and manipulate the recommendations, or threat intelligence data in order to influence the final decisions.
 
-Adversarial peers can try to (i) send bad threat intelligence data; (ii) lie about a peer that is benign, (iii) lie about a peer that is malicious.
+Adversarial peers can try to (i) send bad threat intelligence data; (ii) lie about a peer that is benign, and (iii) lie about a peer that is malicious.
 
 \subsection{Influencing Aggregated Score \& Confidence}
 \label{subsec:influencing-aggregated-score-confidence}
-The main output of Fides is the aggregated score and confidence of a group of reports on a target. The sequence of actions typically are (i) Slips wants to know what the P2P network thinks about target $T$. It then asks some peers (ii), and (iii) uses Fides to aggregate the scores and confidences sent by all the peers. The aggregated score and confidences are used for computing the service trust of peers and also to weight the aggregated score and confidence of the data sent by the peers.
+The main output of Fides is the aggregated score and confidence of a group of reports on a target. The sequence of actions typically are (i) Slips wants to know what the P2P network thinks about target $T$; (ii) it then asks some peers; and (iii) uses Fides to aggregate the scores and confidences sent by all the peers. The aggregated score and confidences are used for computing the service trust of peers and also to weight the aggregated score and confidence of the data sent by the peers.
 
 Any attacker wants to ultimately influence these aggregated values either to make malicious IP/domain seem to be benign or another way around.
 However, for that to happen, the attacker needs to gain sufficient service trust.
@@ -15,7 +15,7 @@ For more information about the aggregated threat intelligence see Section~\ref{s
 \subsection{Influencing Service Trust}
 \label{subsec:influencing-service-trust}
 Fides always computes service trust for the peers locally and does not take over the service trust computed by any other peer.
-How does Fides compute service trust is described in detail in the Section~\ref{sec:computational-model}.
+How does Fides computes the service trust is described in detail in Section~\ref{sec:computational-model}.
 
 Malicious peers can influence the service trust value for some other remote peer in the network in the eyes of the local Fides in two situations.
 
