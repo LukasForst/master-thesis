@@ -10,13 +10,13 @@ Note that there are two main ideas behind most of the equations.
 The first one, is that we want to robustly capture the average behavior of the peers. In order to do that, we will be computing the average behavior of the peers and then approximating the deviations from said behavior.
 
 Secondly, we will be comparing and weighing first-hand experience with the remote experience. 
-First-hand experience is what happened between local and remote peer during the time they interacted. This can be, for example, threat intelligence sharing, file-sharing, or the results of recommendation protocol.
+First-hand experience is what happened between local and remote peers during the time they interacted. This can be, for example, threat intelligence sharing, file-sharing, or the results of the recommendation protocol.
 Remote experience is what happened between one remote peer and another remote peer. In other words, first-hand experience for peer $j$ are actions between $j$ and $z$. Whenever $j$ shares information about these actions with peer $i$, for $i$ it is a remote experience.
 
 \vspace{0.5cm}
 
 \noindent
-Note that the table \ref{tab:notation-computational-model} describes the most important notation we use in the following sections.
+Table~\ref{tab:notation-computational-model} describes the most important notation we use in the following sections.
 
 \begin{table}[ht]
 \centering
@@ -59,7 +59,7 @@ In other words, the more $i$ and $j$ interact the less $i$ relies on the reputat
 
 \subsection{Local Experience for Service Trust}
 The first part of the equation \ref{eq:service-trust} contains \textit{competence belief} - $cb_{i,j}$, and \textit{integrity belief} - $ib_{i,j}$.
-Both of the values are based solely on the history of the interactions that peer $i$ experienced with the peer $j$.
+Both values are based solely on the history of the interactions that the peer $i$ experienced with the peer $j$.
 
 \subsubsection{Competence Belief}
 \textit{Competence belief} represents how much did peer $j$ satisfied local peer $i$ with the past interactions. We measure it as an average of interactions from the past~\cite{sort}.
