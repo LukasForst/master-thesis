@@ -20,7 +20,7 @@ How does Fides computes the service trust is described in detail in Section~\ref
 Malicious peers can influence the service trust value for some other remote peer in the network in the eyes of the local Fides in two situations.
 
 Firstly, the peers can influence the service trust in a peer by manipulating their recommendation responses when the Fides encounters the peer for the first time and asks the network for the recommendations on it.
-For that reason, the recommendation protocol is engaged only when the network is \textit{trusted enough} and only for the first time when the new remote peer encountered. We describe this more in detail in the Section~\ref{subsec:influencing-peers-reputation} below.
+For that reason, the recommendation protocol is engaged only when the network is \textit{trusted enough} and only for the first time when the new remote peer encountered. We describe this more in detail in Section~\ref{subsec:influencing-peers-reputation} below.
 
 The second case when the malicious peer can indirectly influence the service trust for any other remote peer is a situation when Fides uses one of the interaction evaluation strategies that utilizes the aggregated threat intelligence (\ref{subsec:distance-based-eval}, \ref{subsec:network-intelligence-conf-high-enough}, \ref{subsec:weigh-local-opinion-with-aggregated-one}).
 Because in that case, even data from malicious peers are taken in account when computing final satisfaction with the interaction for each peer so by submitting incorrect data the group of malicious peers can influence the interaction evaluation result which will lower the service trust in benign peers.
