@@ -3,15 +3,15 @@
 This thesis aims to design and implement a trust model for sharing threat intelligence in global peer-to-peer networks where the peers are instances of intrusion prevention systems.
 The previous chapter outlined what threat intelligence is, how it is generated, and why trust relationships are essential when making decisions based on the said threat intelligence.
 We described the trust models in the context of peer-to-peer networks and analyzed the notable ones.
-We discovered the promising trust model SORT~,\cite{sort} which we described in Section~\ref{subsec:sort}. After careful analysis, we decided to use SORT's algorithm as a base for our trust model design mainly because of its flexibility and modularity.
+We discovered the promising trust model SORT~\cite{sort}, which we described in Section~\ref{subsec:sort}. After careful analysis, we decided to use SORT's algorithm as a base for our trust model design mainly because of its flexibility and modularity.
 
 In this chapter, we propose a new trust model \textbf{Fides}.
 Fides was named after the ancient goddess of trust and good faith Fides~\cite{enwiki:1086924565}.
-The trust model utilizes modified SORT's computational model with multiple modifications and extensions that allow it to work in highly adversarial global peer-to-peer networks effectively.
+The trust model utilizes modified SORT's computational model with multiple modifications and extensions that allows it to work in highly adversarial global peer-to-peer networks effectively.
 Fides is a generic and heavily configurable trust model specializing in sharing threat intelligence.
 However, thanks to its modular architecture, it can operate with any data, and it is not limited only to threat intelligence.
 
-In the Section~\ref{sec:general-overview-of-fides} we describe our trust model design and explain how Fides works on a high level, the inputs and outputs, and how it behaves in which situation. After outlining the general overview, we analyze the weaknesses of the trust models and how they apply to Fides.
+In Section~\ref{sec:general-overview-of-fides} we describe our trust model design and explain how Fides works on a high level, the inputs and outputs, and how it behaves in which situation. After outlining the general overview, we analyze the weaknesses of the trust models and how they apply to Fides.
 First, we start with \textit{the cold start problem} in the Section~\ref{sec:cold-start-problem}, which describes how peers can gain trust when they are new in the network and how Fides tackles this issue.
 
 In the next Section~\ref{sec:attack-vectors} we analyze possible attack vectors on our trust model, and then we describe the taxonomy of attacks in the next Section~\ref{sec:taxonomy-of-attacks}.
