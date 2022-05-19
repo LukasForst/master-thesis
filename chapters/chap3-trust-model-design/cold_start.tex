@@ -13,7 +13,7 @@ In this approach, whenever the trust model encounters a new peer, it assigns a s
 
 For example, in the \textbf{Dovecot} trust model~\cite{dita}, every peer starts with trust $1$ (highest possible), and various interactions can lower the trust in the peer to $0$. In other words, the trust model considers new peers honest from the beginning, and only during this time their reputation can be lowered when they perform incorrect interactions or are discovered as a malicious peer.
 
-On the other hand, the \textbf{Sality} botnet~\cite{falliere2011sality} uses a value called \textit{goodcount} as a counter of good interactions with any other peer, the larger the \textit{goodcount}, the greater trust the local peer has on the remote peer. The goodcount for each new peer starts with $0$ in Sality. Meaning, that the botnet does not trust fresh peers at all and they can gain trust only by following the Sality protocol.
+On the other hand, the \textbf{Sality} botnet~\cite{falliere2011sality} uses a value called \textit{goodcount} as a counter of good interactions with any other peer, the higher the \textit{goodcount}, the greater trust the local peer has on the remote peer. The goodcount for each new peer starts with $0$ in Sality. Meaning, that the botnet does not trust fresh peers at all and they can gain trust only by following the Sality protocol.
 
 The model of \textit{static initial trust} is easy to implement, but it requires assumptions about the network. If the network is considered \textit{mostly benign}, it might be safe to use an initial trust of $1$, however, for highly adversarial networks using an initial trust of $1$ might be dangerous and it is better to use $0$. 
 Using low initial trust and no mechanism to gain more trust fast means that the benign peers that joined recently do not affect the final decisions of the model, even though they might have useful information about adversaries.
@@ -35,7 +35,7 @@ Second, Fides can use the initial pre-trusted value read from the configuration 
 This configuration for Fides is called \textit{enforceTrust}. If it is enabled and thus $enforceTrust = False$ is set in the configuration, Fides uses the first variant where the trust for the peer will move during the interactions. If the administrator uses $enforceTrust = True$, Fides uses the second option and fixates the service trust for the peer to a set \textit{pre-trust}.
 
 Both options help solve the cold start problem for specific peers and organizations, as they will start with a high reputation or fixed service trust. Which organization or peer to trust is completely left to the administrator of Slips. 
-The inspiration for which organization or to which peer to trust provides, for example, Tor and their directory authorities~\cite{torauth}. However, as the administrator needs to know the identity of the peers or organization, it does not solve the cold start problem globally for all peers.
+However, as the administrator needs to know the identity of the peers or organization, it does not solve the cold start problem globally for all peers.
 
 \subsection{Recommendations}
 \label{subsec:recommendations}
