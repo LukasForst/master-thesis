@@ -8,12 +8,12 @@ In this chapter, we describe the architecture of Fides and how it interacts with
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.4\textwidth]{assets/redis_channels.jpeg}
-    \caption{High-Level Architecture}
+    \caption{Fides high-level architecture that visualizes how does Fides communicate with Slips and Iris.}
     \label{fig:high-level-architecture}
 \end{figure}
 
-From the high-level perspective (see Figures~\ref{fig:high-level-architecture} and \ref{fig:fides-api-network}), the trust model Fides  communicates with two different systems - Slips~\cite{slips} and the network layer Iris~\cite{nl}.
-Fides manages the trust relationships in the network, aggregates threat intelligence data and communicates with Slips. The communication with the remote peers in the network is facilitated by Iris. 
+From the high-level perspective (see Figures~\ref{fig:high-level-architecture} and \ref{fig:fides-api-network}), the trust model Fides communicates with two different systems - Slips~\cite{slips} and the network layer Iris~\cite{nl}.
+Fides manages the trust relationships in the network, aggregates threat intelligence data, and communicates with Slips. The communication with the remote peers in the network is facilitated by Iris. 
 Slips then produces and consumes the threat intelligence and defends the network against intruders.
 
 Fides exposes and consumes an API~\cite{api} built using the Redis channels for both parts (Figure~\ref{fig:high-level-architecture}).
