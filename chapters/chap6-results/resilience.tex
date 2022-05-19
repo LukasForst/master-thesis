@@ -5,7 +5,7 @@ To evaluate the resilience of Fides in different scenarios, we need to find the 
 
 In this section, we are focusing on finding the best possible combination of parameters for the worst possible scenario. In other words, we want to identify a setup, where the Fides can guarantee that it is eventually going to provide the correct data and will classify the targets correctly even though the malicious actor controls most of the network.
 
-We shows two specific scenarios - one with no pre-trusted peers and one where there are 25\% of peers pretr
+We shows two specific scenarios - one with no pre-trusted peers and one where there are 25\% of peers part of some pre-trusted organization. Because even the scenario with only 25\% peers shows, that in some case is Fides able to defend itself against the rest of the network, we do not show scenarios with more pre-trusted peers, but we include them in the appendix (Figure~\ref{fig:performance-all-setups-50-pretrusted}).
 
 \subsection{Scenario With No Pre-Trusted Peers}
 \label{subsec:scenario-with-0-pretrusted-peers}
@@ -31,7 +31,7 @@ Thus the higher the value of hardness is, the easier it is for the Fides to do c
 Specifically in Figure~\ref{fig:0-target-detection} we can see that that in the \textit{easy} environment, most of \textit{dots} are below the red line until the hardness gets close to $3$.
 The metrics perform more or less the same as they are able to stay bellow the red line until $eh = 3$. In that situation, the best performance and thus the lowest $tdp$ has $ThresholdTIEvaluation$ in combination with $WeighedDistanceToLocalTIEvaluation$ and initial reputation of $0.95$.
 
-Interestingly, the $DistanceBasedTIEvaluation$ in combination with $0$ initial reputation and $AverageConfidenceTIAggregation$ threat intelligence aggregation, shows the same target classification performance in each environment - $tdp = 0$. This suggests that the method was unable to determine any trust for any of the peers. This is then later confirmed by the Figure~\ref{fig:0-peer-trust}.
+Interestingly, the $DistanceBasedTIEvaluation$ in combination with $0$ initial reputation and $AverageConfidenceTIAggregation$ for threat intelligence aggregation, shows the same target classification performance in each environment - $tdp = 0$. This suggests that the method was unable to determine any trust for any of the peers. This is then later confirmed by the Figure~\ref{fig:0-peer-trust}.
 
 % TODO: move the legend to the left
 \label{subsubsec:target-detection-performance}
