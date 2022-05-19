@@ -11,14 +11,17 @@ In this section, we are focusing on finding the best possible combination of par
 
 In this scenario, Fides talks to 25\% of pre-trusted peers with. We simulated environments starting with the 75\% of confident correct peers~(behavior from Section~\ref{subsubsec:confident-correct-peer}) up to 75\% malicious peers~(behavior from Section~\ref{subsubsec:malicious-peer}) and used all possible setups.
 
-\begin{figure}[h]
+\begin{figure}[hp]
     \centering
     \includegraphics[height=0.95\textheight]{assets/25_target_detection.png}
     \caption{Target detection possibility.}
     \label{fig:25-target-detection}
 \end{figure}
 
-
+Figure~\ref{fig:25-target-detection} visualizes the target detection performance (Section~\ref{subsec:target-detection-performance-metric}) on three different graphs where each of the graphs is a single interaction evaluation strategy.
+Each graph then displays dots with different colors. Each color a single threat intelligence aggregation method in combination with different initial reputation value.
+A single dot in the graph is the value of $tdp$ and in a case when the $tdp \geq 1$, it means that Fides made on average the wrong decision about the targets and classified them with the wrong label.
+In other words, if $tdp \geq 1$, Fides classified benign targets as malicious and the other way around.
 
 
 % There are three rows and four columns. Each row contains a single interaction evaluation strategy (Section~\ref{sec:interaction-evaluation-strategies}) and each column contains a single metric that evaluates the behavior of that strategy in the network.
