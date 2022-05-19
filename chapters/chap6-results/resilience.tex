@@ -61,11 +61,19 @@ Thus, this method does not provide a guarantee that Fides will end up with corre
 
 The same applies to all other interaction evaluation methods as we can see in the Figure~\ref{fig:performance-all-setups-25-pretrusted} that in the hardest environment, they all classified the targets poorly with all threat intelligence aggregation methods.
 
-\subsection{Scenario of No pre-trusted peers Resilience Under Different Conditions}
+\subsection{Scenarios of No pre-trusted peers, and 50\% pre-trusted peers}
 \label{subsec:resilience-under-different-conditions}
-
-We include a similar graph to Figure~\ref{fig:performance-all-setups-25-pretrusted} for the situations with no pre-trusted peers in the appendix in the Figure~\ref{fig:performance-all-setups-0-pretrusted} and then situations with 50\% of pre-trusted peers in the Figure~\ref{fig:performance-all-setups-50-pretrusted}.
+Other two important scenarios to consider are the situations where the administrator does not have any pre-trusted peers and when at least 50\% of peers are pre-trusted.
 
 With no pre-trusted peers in the network, the results of each configuration vary and they highly depend on the network topology as well as on the knowledge of the local Slips instance.
+
+These results for the no pre-trusted scenario are shown in Appendix Figure~\ref{fig:performance-all-setups-0-pretrusted}.
+
+
+
+
+
+and then situations with 50\% of pre-trusted peers in the Figure~\ref{fig:performance-all-setups-50-pretrusted}.
+
 
 However, in the case of 50\% pre-trusted peers, one can see that no matter the configuration, Fides was eventually able to determine the correct target classification with a high precision of $tdp \leq 0.7$. Moreover, Fides was able to correctly identify the peer's behavior with the precision of $pbdp \leq 0.2$.
