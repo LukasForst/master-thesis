@@ -96,4 +96,7 @@ Thus, this method does not provide a guarantee that Fides will end up with corre
 \end{figure}
 
 Figure~\ref{fig:25-peer-trust}, similarly to Figure~\ref{fig:0-peer-trust} shows the peer's behavior detection performance $pbdp$ on the left side and peer's average trust on the right side.
-When we compare Figure~\ref{fig:0-peer-trust} (no pre-trusted peers) with this Figure~\ref{fig:25-peer-trust} (25\% pre-trusted peers), we can clearly see that especially the $pbdp$ metric improved and in all environment it holds that $pbdp \leq 0.4$
+When we compare Figure~\ref{fig:0-peer-trust} (no pre-trusted peers) with this Figure~\ref{fig:25-peer-trust} (25\% pre-trusted peers), we can clearly see that especially the $pbdp$ metric improved and in all environment it holds that $pbdp \leq 0.4$. 
+This means that Fides's ability to identify the true behavior of the peers greatly improved for all interaction evaluation strategies.
+
+The biggest improvement was in strategy $DistanceBasedTIEvaluation$ which had poor performance with no pre-trusted peers in Figure~\ref{fig:0-peer-trust}. However, in the situation with 25\% pre-trusted peers it is now able to detect the true behavior of the peers with the similar 
