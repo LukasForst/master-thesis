@@ -5,6 +5,25 @@ To evaluate the resilience of Fides in different scenarios, we need to find the 
 
 In this section, we are focusing on finding the best possible combination of parameters for the worst possible scenario. In other words, we want to identify a setup, where the Fides can guarantee that it is eventually going to provide the correct data and will classify the targets correctly even though the malicious actor controls most of the network.
 
+\subsection{Scenario With No Pre-Trusted Peers}
+\label{subsec:scenario-with-0-pretrusted-peers}
+
+In this scenario, there are no pre-trusted peers nor organizations and Fides needs to determine trust in each peer by itself.
+We simulated environments starting with the 75\% of confident correct peers~(behavior from Section~\ref{subsubsec:confident-correct-peer}) up to 75\% malicious peers~(behavior from Section~\ref{subsubsec:malicious-peer}) and used all possible setups.
+
+\cleartoleftpage % check if this appears on the left side 
+\subsubsection{Target Detection Performance}
+
+% TODO: move the legend to the left
+\label{subsubsec:target-detection-performance}
+\begin{figure}[hp]
+    \centering
+    \includegraphics[height=0.95\textheight]{assets/25_target_detection.png}
+    \caption{Target detection possibility.}
+    \label{fig:25-target-detection}
+\end{figure}
+
+
 
 \subsection{Scenario With 25\% of Pre-Trusted Peers}
 \label{subsec:scenario-with-25-pretrusted-peers}
