@@ -36,13 +36,13 @@ We explore this behavior in more detail in the experiments in Section~\ref{sec:e
 When a new peer joins the network, Fides in some cases requests recommendations from other peers in the network.
 We go into detail of this process further in Section~\ref{subsubsec:requesting-recommendation}.
 
-Because Fides asks for the recommendation, it is possible, that one or more of the peers providing the recommendations is malicious and it provides \textit{incorrect} recommendations with a goal either to silence a benign peer or to support another malicious peer.
+Because Fides asks for the recommendation, it is possible that one or more of the peers providing the recommendations is malicious and it provides \textit{incorrect} recommendations with the goal either to silence a benign peer or to support another malicious peer.
 
 Even though the reputation of a peer can be skewed by the attacker, it is still able to gain \textit{correct} service trust by following the protocol and providing useful data.
-The service trust equation~\ref{eq:service-trust} suggests, that  the more experience a local peer has with a remote peer, the more it ignores the initially received recommendations.
+The service trust equation~\ref{eq:service-trust} suggests that the more experience a local peer has with a remote peer, the more it ignores the initially received recommendations.
 This means that the service trust will tend to converge to \textit{correct} values that do not necessarily depend on the initial recommendations and eventually will lose that information completely.
 In other words, if the peer's initial reputation was \textit{incorrect} (from the ground truth point of view), it will only take the peer longer to gain \textit{correct} service trust, but eventually, it will end up with the same value as with the correct reputation value.
-We talk more about the service trust and how does it behave further in the Section~\ref{subsec:service-trust}
+We talk more about the service trust and how does it behave further in Section~\ref{subsec:service-trust}.
 
 \section{Taxonomy of Attacks}
 \label{sec:taxonomy-of-attacks}
