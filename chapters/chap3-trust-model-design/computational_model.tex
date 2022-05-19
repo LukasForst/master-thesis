@@ -135,9 +135,9 @@ We denote a set of remote peers, that provided the recommendations as $T_{i}$.
 \label{subsubsec:requesting-recommendation}
 The recommendation system built into Fides cannot be used in every scenario.
 Because of the sensitive nature of the environment, the trust model was designed for, there are cases when it is dangerous to ask for recommendations.
-That is mainly the case when there are \textit{not enough} peers that are \textit{trusted enough}.
+This is mainly the case when there are \textit{not enough} peers that are \textit{trusted enough}.
 
-SORT requests recommendations every time it encounters a new peer. The set of recommending peers is created by taking all known peers and selecting the ones, that have higher than average service trust.
+SORT requests recommendations every time it encounters a new peer. The set of recommending peers is created by taking all known peers and selecting the ones that have higher than average service trust.
 However, those can also be peers with trust as low as $0.001$. In a sensitive environment, which the peer-to-peer network of IPS definitely is, we do not want to get recommendations from peers, that have low trust at all.
 Moreover, given the nature of Slips, we decided to combine a recommendation system based on SORT with static initial trust~(\ref{subsec:static-initial-trust}) and with pre-trusted peers~(\ref{subsec:pre-trusted-peers}).
 This approach provides a more robust basis for a trust-sensitive environment and it helps us to mitigate the cold start problem~(\ref{sec:cold-start-problem}).
