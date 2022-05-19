@@ -24,11 +24,11 @@ Similarly, as in the previous Section~\ref{subsec:exploring-interaction-eval-str
 By incorporating information from the recent history, the aggregation might improve the overall detection performed by the trust model.
 
 Moreover, there might be better ways how to aggregate the threat intelligence, or maybe the combination of multiple approaches to one might improve the final confidence in trust model decisions.
-As we saw in the Chapter~\ref{ch:results}, the combination of interaction evaluation and threat intelligence aggregation influences the performance of the trust model to great extent.
+As we saw in Chapter~\ref{ch:results}, the combination of interaction evaluation and threat intelligence aggregation influences the performance of the trust model to great extent.
 
 \subsection{Possible Mitigation of Sybil Attack}
 \label{subsec:possible-mittigation-of-sybil-attack}
-When analyzing the possible attack vectors for Fides, we described the Sybil attack in the Section~\ref{subsec:whitewashing-and-sybil-attack} and we stated that Fides is vulnerable to this type of attack when an attacker floods the network with their own malicious peers.
+When analyzing the possible attack vectors for Fides, we described the Sybil attack in Section~\ref{subsec:whitewashing-and-sybil-attack} and we stated that Fides is vulnerable to this type of attack when an attacker floods the network with their own malicious peers.
 The experiments showed that under specific circumstances, where the attacker controls the majority of the network they can manipulate the decisions made by the trust model.
 
 In order to mitigate this type of attack, it would need to be \textit{computationally hard} to join the peer-to-peer network or generate a new peer identity.
@@ -53,7 +53,7 @@ The designed peer-to-peer network for threat intelligence sharing unfortunately 
 The peers sharing threat intelligence are not gaining any benefit other than gaining trust in the eyes of other peers.
 As the gained trust brings little to no benefit by itself, there is a lack of incentive for the peers to share their threat intelligence with the network.
 
-However, we can see data \& threat intelligence filtering as one of the ways how to motivate other peers to share their threat intelligence.
+However, we can see data and threat intelligence filtering as one of the ways how to motivate other peers to share their threat intelligence.
 As we described in the Section~\ref{subsec:data-filtering}, the Fides administrator can choose what threat intelligence is shared with which peers by configuring confidentiality levels with required service trust.
 Using this approach, the threat intelligence is shared only with high trusted peers.
 That would result in an incentive for the peers to gain the service trust which they do by sharing their own threat intelligence with the network.
