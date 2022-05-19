@@ -58,8 +58,8 @@ On the left side, one can see the peer's behavior detection performance metric t
 
 On the right side, we show the peer's average trust metric. That is an average trust of Fides for each peer. We include this metric in order to see how much trust was Fides able to obtain for the peers in the network.
 It is important to note, that there is no \textit{correct} or \textit{desired} value of this metric, because for example in the environment where there are all peers confident correct, the peer's average trust should be high, but in the environment with all byzantine peers, this metric should be low because Fides should not trust incorrect and malicious peers.
-However, in a case of our figures, where we have environment hardness
 
+In Figure~\ref{fig:0-peer-trust} we can see that the 
 
 As suggested in the previous section while measuring target detection performance, the right graph for $DistanceBasedTIEvaluation$ in combination with $AverageConfidenceTIAggregation$ shows, that this setup is unable to determine trust for the peers and has average peer's trust close to $0$. This means that the trust model will almost always aggregate threat intelligence to score $0$ with confidence $0$ making it useless. 
 
