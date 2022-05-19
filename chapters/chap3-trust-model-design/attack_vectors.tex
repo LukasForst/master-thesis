@@ -60,19 +60,19 @@ The intent of the malicious peers, in this case, is to lower someone's service t
 In a case of service trust, this is not possible directly, but rather by colluding with multiple high trusted peers as described in detail in Section~\ref{subsec:influencing-service-trust}.
 In the case of reputation, this is possible if the malicious peer is selected as a recommender.
 Fides mitigates both of these problems by asking numerous peers for their opinion (in case of service trust) and by asking only pre-selected and highly trusted peers in case of recommendations.
-Of course, it is not possible to eliminate the possibility of a malicious peer benign asked for the recommendations, that's why, in experiments, we simulate malicious peers as \textit{Malicious Peer} (\ref{subsubsec:malicious-peer}) behavioral patterns.
+Of course, it is not possible to eliminate the possibility of a malicious peer being asked for the recommendations, that is why, in experiments, we simulate malicious peers as \textit{Malicious Peer} (\ref{subsubsec:malicious-peer}) behavioral patterns.
 In simulations we then evaluate what network topology is needed in order for Fides not to be easily manipulated into believing the malicious peers.
 
-\textit{Inaccurate recommendations} are a type of \textit{unfair recommendation} when an honest peer provide wrong data due to a lack of complete information.
-This can happen for example because they were not attacked by the adversary (yet), and they consider them to be benign because they have no reason to see it otherwise.
+\textit{Inaccurate recommendations} are a type of \textit{unfair recommendation} when an honest peer provides wrong data due to a lack of complete information.
+This can happen, for example, because they were not attacked by the adversary (yet), and they consider them to be benign because they have no reason to see it otherwise.
 Another example can be a peer that does not have the latest threat intelligence data from the black lists or other remote resources.
 These peers are included in the experiments as well, we call that \textit{Confident Incorrect} (\ref{subsubsec:confident-incorrect-peer}) behavioral pattern.
 
 Koutrouli and Tsalgatidou \cite{KOUTROULI201247} also mention \textit{Random opinions} where the peer is essentially providing random data.
-We simulate this in our experiments as well, because there will be peers, in the network, that simply don't have enough information to make a good and confident decision about some target.
+We simulate this in our experiments as well, because there will be peers, in the network, that simply do not have enough information to make a good and confident decision about some target.
 This is the \textit{Uncertain Peer} (\ref{subsubsec:uncertain-peer}) behavioral pattern.
 
-Because of the nature of the Fides, which aggregates all network opinions it receives, the worst-case scenario is the situation where the attackers collude together because it amplifies their effect on the final aggregated score \& confidence.
+Because of the nature of Fides, which aggregates all network opinions it receives, the worst-case scenario is the situation where the attackers collude together because it amplifies their effect on the final aggregated score \& confidence.
 However, our trust model uses service trust during computing the final score with confidence so, in order for attackers to influence this decision, their total service trust must be higher than the service trust of the benign peers.
 This makes it harder for the adversary to overturn the decisions in their favor because it forces them to gain the service trust of all their peers.
 In simulations, we have malicious peers that collude (and lie about the same targets) as well as peers that do not collude and lie about different targets.
