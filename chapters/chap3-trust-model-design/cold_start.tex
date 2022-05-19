@@ -3,7 +3,7 @@
 A dynamic and global environment such as a global peer-to-peer network is open to anyone since any peer can freely join and leave. Because of that, the local peer will encounter many other peers that were not seen before. Therefore, the trust model does not have any information about their reliability or how much it can trust them. 
 New benign peers need to be \textit{somehow} trusted by the local peer in order to be a useful part of the network. However, the local peer also needs to be able to discover new malicious peers that are trying to gain its trust.
 
-The problem of how to know something about a new entity in order to quickly work better is called the \textit{Cold Start Problem}~\cite{christensen2014hybrid}. For Fides it means how to compute a good initial trust for new unknown peers. 
+The problem of how to know something about a new entity in order to quickly work better is called the \textit{Cold Start Problem}~\cite{christensen2014hybrid}. For Fides, it means how to compute a good initial trust for new unknown peers. 
 
 We selected several solutions to this issue, which are all implemented in Fides. Fides also combines them according to a provided configuration with the aim to achieve the best result for the cold start problem with adversarial peers.
 
