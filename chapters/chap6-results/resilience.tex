@@ -22,7 +22,12 @@ Figure~\ref{fig:25-target-detection} visualizes the target detection performance
 Each graph then displays dots with different colors. Each color a single threat intelligence aggregation method in combination with different initial reputation value.
 A single dot in the graph is the value of $tdp$ and in a case when the $tdp \geq 1$, it means that Fides made on average the wrong decision about the targets and classified them with the wrong label.
 In other words, if $tdp \geq 1$, Fides classified benign targets as malicious and the other way around.
+We included the \textit{red line} that shows $tdp = 1$ so if a dot is above the \textit{red line}, the Fides made incorrect target classification.
+For that reason, we optimize the \textit{dots} to be below the \textit{red line} (classifications being correct).
 
+The horizontal axis in each graph measures the environment hardness explained in Section~\ref{subsec:environment-hardness}. It is important to note, that hardness essentially expresses how many peers, that can provide correct data, are in the simulation. For example, if the hardness is $10$, $100\%$ of peers inside the simulation are provi
+
+Specifically in Figure~\ref{fig:25-target-detection} one can see that until harness
 
 % There are three rows and four columns. Each row contains a single interaction evaluation strategy (Section~\ref{sec:interaction-evaluation-strategies}) and each column contains a single metric that evaluates the behavior of that strategy in the network.
 % There are three different metrics that evaluate the performance of the Fides's setup and the last graph displays how many confident correct (Section~\ref{subsubsec:confident-correct-peer}) peers there are in the network.
