@@ -96,16 +96,16 @@ In our case, Fides uses a peer's identity that was provided by the Network Layer
 From the technical point of view, the identity is, in fact, a public key, and any data the peer provides is signed with the peer's private key. Thus, we can verify that the data were provided by the owner of the private key to said public key (identity).
 Moreover, any peer in our network can belong to one or more organizations that are, again, represented by their public key. 
 Peers prove their membership to the organization by providing their own public key signed by the organization's private key.
-The identity, as well as organization membership, is cryptographically verified by the network layer \cite{nl} and Fides does not perform any additional verification. 
+The identity, as well as the organization's membership, is cryptographically verified by the network layer \cite{nl} and Fides does not perform any additional verification. 
 
 \subsubsection{Impersonation}
 Thanks to the data signatures and identities tied to private/public key pairs, the \textit{Impersonation} based attacks are then possible solely in cases when the attacker gained access to the private key of the peer.
 Unfortunately, this type of attack is not possible to prevent completely. 
-However, when the attacker gains access and starts submitting incorrect data, the Fides will start lowering service trust associated with that identity and thus eventually limiting the attacker's influence.
+However, when the attacker gains access and starts submitting incorrect data, Fides will start lowering the service trust associated with that identity, thus eventually limiting the attacker's influence.
 
 \subsubsection{Man-in-the-middle attack}
 \textit{Man-in-the-middle attack}s are attacks when a third party is able to either intercept or manipulate the transmitted data.
-From Fide's point of view, the data manipulation is not possible as the data are signed by the sender and because of the network layer \cite{nl} design and Fides never works with any data whose signature is invalid.
+From Fides point of view, the data manipulation is not possible, as the data are signed by the sender and because of the network layer \cite{nl} design and Fides never works with any data whose signature is invalid.
 On the other hand, the network layer is designed in a way that peers pass messages to each other through the network \cite{nl}, so any malicious peer can choose not to pass down the message.
 How this affects the propagation of messages is part of the experiments in said paper \cite{nl}.
 
