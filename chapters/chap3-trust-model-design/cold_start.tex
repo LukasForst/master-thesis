@@ -35,16 +35,16 @@ Second, Fides can use the initial pre-trusted value read from the configuration 
 This configuration for Fides is called \textit{enforceTrust}. If it is enabled and thus $enforceTrust = False$ is set in the configuration, Fides uses the first variant where the trust for the peer will move during the interactions. If the administrator uses $enforceTrust = True$, Fides uses the second option and fixates the service trust for the peer to a set \textit{pre-trust}.
 
 Both options help solve the cold start problem for specific peers and organizations, as they will start with a high reputation or fixed service trust. Which organization or peer to trust is completely left to the administrator of Slips. 
-The inspiration for which organization or to which peer to trust provides, for example, Tor and their directory authorities~\cite{torauth}. However as the administrator needs to know the identity of the peers or organization, it does not solve the cold start problem globally for all peers.
+The inspiration for which organization or to which peer to trust provides, for example, Tor and their directory authorities~\cite{torauth}. However, as the administrator needs to know the identity of the peers or organization, it does not solve the cold start problem globally for all peers.
 
 \subsection{Recommendations}
 \label{subsec:recommendations}
 As the local peer might have multiple remote peers that it trusts enough, Fides uses these relationships to ask the remote peers about how much they trust a new peer. Fides only asks for recommendations once: when the local peer finds a new peer for the first time.  
 
-Using a recommendation system introduces new attack vectors, that can be exploited by adversaries either by getting trust for the malicious peer or by lowering trust in honest peers that might have some threat intelligence about the malicious actor. 
+Using a recommendation system introduces new attack vectors that can be exploited by adversaries, either by getting trust for the malicious peer or by lowering trust in honest peers that might have some threat intelligence about the malicious actor. 
 These attacks are called \textit{bad-mouthing} and \textit{unfair praises} and we need to consider them and implement countermeasures.
 
-Because of the possible attacks, the local peer should not solely rely on the network recommendations when computing the final service trust for the fresh peer. In case, when the recommending peers are malicious, it might skew the decisions of the local peer for the time being.
+Because of the possible attacks, the local peer should not solely rely on the network recommendations when computing the final service trust for the fresh peer. In case when the recommending peers are malicious, it might skew the decisions of the local peer for the time being.
 In order to solve this, when computing the final service trust for the remote peer, the local peer should take into account its own interaction with the peer as well as the received recommendations.
 
 Moreover, the local peer should request recommendations only if it has \textit{enough} trusted remote peers, otherwise, it can expose itself to \textit{bad-mouthing} and \textit{unfair praises} attacks more easily.
@@ -52,4 +52,4 @@ Moreover, the local peer should request recommendations only if it has \textit{e
 \vspace{7mm}
 
 Fides employs recommendation systems based on SORT~\cite{sort} but with more strict rules when it is actually used and combines it with the pre-trusted peers~(\ref{subsec:pre-trusted-peers}) as well as with the static initial trust~(\ref{subsec:static-initial-trust}) as a fallback when no other option is available due to constraints such as having not enough trusted peers.
-The algorithm used for the recommendation system is explained in detail in the Section~\ref{sec:computational-model}.
+The algorithm used for the recommendation system is explained in detail in Section~\ref{sec:computational-model}.
