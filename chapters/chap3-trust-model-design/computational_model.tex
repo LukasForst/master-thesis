@@ -97,13 +97,13 @@ Because our trust model is generic, the evaluation function can be implemented d
 How did we design it and implemented it for threat intelligence is described in the Section~\ref{sec:interaction-evaluation-strategies}.
 
 However, even with the computed interaction satisfaction value, not all interactions are the same. 
-Some of the interactions are more important than others. 
+Some interactions are more important than others. 
 Moreover, because peers can change their behavior, most recent interactions should be more important than the interactions that happened a long time ago.
 That is why we include the weight of the interaction and the fading effect.
 
 \subsubsection{Weight of the Interaction}
 Because each interaction is different and its importance is different, we have $w^{k}_{i,j}$ that measures the importance~\cite{sort}.
-Weight belongs to interval $0 \leq w^{k}_{i,j} \leq 1$ and Fides implements it as a discrete function of interaction type. 
+The weight belongs to interval $0 \leq w^{k}_{i,j} \leq 1$ and Fides implements it as a discrete function of interaction type. 
 For example, the weight of interaction when a remote peer shares the threat intelligence is higher than when the remote peer requests threat intelligence.
 
 
@@ -114,17 +114,17 @@ $f^{k}_{i,j}$ is a \textit{non-increasing function} of interaction and time or a
 
 The actual implementation of the fading effect depends on the data the trust model is processing.
 For example, SORT implements it as a decreasing linear function $f^{k}_{i,j} = \frac{k}{sh_{i,j}}, 1 \leq k \leq sh_{i,j}$~\cite{sort}.
-However, in our case and after multiple iterations, we decided to not to forget the interactions that the model remembers and rather have all interactions with the same impact.
+However, in our case and after multiple iterations, we decided not to forget the interactions that the model remembers and rather have all interactions with the same impact.
 
 \begin{equation}
     f^{k}_{i,j} =1
 \end{equation}
 
 \noindent
-The way Fides computes $f^{k}_{i,j}$ might be changed in the future and implemented as a function of time, we discuss this in more detail as a part of the future work in the Section~\ref{sec:future-work}.
+The way Fides computes $f^{k}_{i,j}$ might be changed in the future and implemented as a function of time, we discuss this in more detail as a part of the future work in Section~\ref{sec:future-work}.
 
 \subsection{Reputation and Recommendations}
-In order to mitigate the cold start problem outlined in the Section~\ref{sec:cold-start-problem} and in the cases when there are no or few interactions between $i$ and $j$, the algorithm relies on $r_{i,j}$ - \textit{reputation value}~\cite{sort}.
+In order to mitigate the cold start problem outlined in Section~\ref{sec:cold-start-problem} and in the cases when there are no or few interactions between $i$ and $j$, the algorithm relies on $r_{i,j}$ - \textit{reputation value}~\cite{sort}.
 $r_{i,j}$ is the second part of the service trust equation~\ref{eq:service-trust} that introduces \textit{remote experience} to the service trust.
 
 The \textit{reputation} value is computed from the \textit{recommendations} received from the remote peers. This value represents what remote peers think about another remote peer. However, this value is calculated by the local peer with respect, to how much it trusts each peer, that provided the recommendation.
@@ -133,7 +133,7 @@ We denote a set of remote peers, that provided the recommendations as $T_{i}$.
 
 \subsubsection{Requesting a Recommendation}
 \label{subsubsec:requesting-recommendation}
-The recommendation system built into Fides can not be used in every scenario.
+The recommendation system built into Fides cannot be used in every scenario.
 Because of the sensitive nature of the environment, the trust model was designed for, there are cases when it is dangerous to ask for recommendations.
 That is mainly the case when there are \textit{not enough} peers that are \textit{trusted enough}.
 
