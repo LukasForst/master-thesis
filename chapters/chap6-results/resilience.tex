@@ -34,21 +34,19 @@ The metrics perform more or less the same as they are able to stay bellow the re
 Interestingly, the $DistanceBasedTIEvaluation$ in combination with $0$ initial reputation and $AverageConfidenceTIAggregation$ for threat intelligence aggregation, shows the same target classification performance in each environment - $tdp = 0$. This suggests that the method was unable to determine any trust for any of the peers. This is then later confirmed by the Figure~\ref{fig:0-peer-trust}.
 
 % TODO: move the legend to the left
-\label{subsubsec:target-detection-performance}
 \begin{figure}[hp]
     \centering
-    \includegraphics[height=0.95\textheight]{assets/0_target_detection.png}
-    \caption{TODO}
+    \includegraphics[height=0.91\textheight]{assets/0_target_detection.png}
+    \caption{Target detection performance (vertical axis) for three different interaction evaluation strategies in different environments (horizontal axis).}
     \label{fig:0-target-detection}
 \end{figure}
 
 \cleartoleftpage
 \subsubsection{Peers Behavior Detection Performance}
-
 \begin{figure}[hp]
     \centering
-    \includegraphics[width=1.0\textwidth]{assets/0_peer_trust.png}
-    \caption{todo.}
+    \includegraphics[width=0.91\textwidth]{assets/0_peer_trust.png}
+    \caption{Behavior of peer's trust metrics in the different environments for different Fides's setups. On the left side peer's behavior detection performance, on the right side peer's average trust.}
     \label{fig:0-peer-trust}
 \end{figure}
 
@@ -68,9 +66,8 @@ As suggested in the previous section while measuring target detection performanc
 In this scenario, Fides talks to 25\% of pre-trusted peers with. We simulated environments starting with the 75\% of confident correct peers~(behavior from Section~\ref{subsubsec:confident-correct-peer}) up to 75\% malicious peers~(behavior from Section~\ref{subsubsec:malicious-peer}) and used all possible setups.
 
 \subsubsection{Target Detection Performance}
-
-% TODO: move the legend to the left
 \label{subsubsec:target-detection-performance}
+% TODO: move the legend to the left
 \begin{figure}[hp]
     \centering
     \includegraphics[height=0.95\textheight]{assets/25_target_detection.png}
@@ -99,4 +96,4 @@ Figure~\ref{fig:25-peer-trust}, similarly to Figure~\ref{fig:0-peer-trust} shows
 When we compare Figure~\ref{fig:0-peer-trust} (no pre-trusted peers) with this Figure~\ref{fig:25-peer-trust} (25\% pre-trusted peers), we can clearly see that especially the $pbdp$ metric improved and in all environment it holds that $pbdp \leq 0.4$. 
 This means that Fides's ability to identify the true behavior of the peers greatly improved for all interaction evaluation strategies.
 
-The biggest improvement was in strategy $DistanceBasedTIEvaluation$ which had poor performance with no pre-trusted peers in Figure~\ref{fig:0-peer-trust}. However, in the situation with 25\% pre-trusted peers it is now able to detect the true behavior of the peers with the similar precisiou as the other
+The biggest improvement was in strategy $DistanceBasedTIEvaluation$ which had poor performance with no pre-trusted peers in Figure~\ref{fig:0-peer-trust}. However, in the situation with 25\% pre-trusted peers it is now able to detect the true behavior of the peers with the similar precision as the other strategies.
