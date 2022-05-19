@@ -82,7 +82,6 @@ Specifically in Figure~\ref{fig:25-target-detection} one can see that until the 
 That changes after the environment hardness $eh \leq 2.5$ when the $ThresholdTIEvaluation$ as well as $MaxConfidenceTIEvaluation$ misclassify the targets and the $tdp \geq 1$. In that case, all threat intelligence aggregation methods are the same and all of them misclassify the targets no matter what initial reputation is used.
 However, the $DistanceBasedTIEvaluation$ strategy in combination with $AverageConfidenceTIAggregation$ method is able to still classify the targets correctly and maintain the $tdp \leq 1$ even under toughest conditions where there are 75\% of adversarial peers in the simulation.
 
-We included the graph of this case, similar to the Figure~\ref{fig:single-simulation-example}, with this particular \textit{"winning"} setup in the most hostile environment to the appendix in Figure~\ref{fig:worst-best-scenario}. For the explanation of the graph see Section~\ref{sec:general-overview-of-simulation-output}.
 
 \cleartoleftpage
 \subsubsection{Peers Behavior Detection Performance}
@@ -96,18 +95,6 @@ We included the graph of this case, similar to the Figure~\ref{fig:single-simula
 
 TODO
 
-% Interestingly, in this particular case, the initial reputation does not affect the final outcome of the simulation, but it does affect the progress as when using an initial reputation higher than $0$, Fides provides wrong scores in the situation when the malicious peers started to lie.
-% However, it discovers that the peers are lying, which decreases their service trust and is able to eventually recover the correct labels for the targets.
-% The score value over time for this situation can be seen on the Figure~\ref{fig:missclassification-score-only}.
-% We included the whole graph in the appendix in Figure~\ref{fig:missclassification-recovery}.
-
-% \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=0.9\textwidth]{assets/misclassification_score.png}
-%     \caption{Score in figure~\ref{fig:missclassification-recovery}.}
-%     \label{fig:missclassification-score-only}
-% \end{figure}
-
 % It is clear from Figure~\ref{fig:distance-detection-detail-25}, that when Fides used the threat intelligence aggregation method $WeightedAverageConfidenceTIAggregation$~(\ref{subsec:WeightedAverageConfidenceTIAggregation}), it miss-classified the targets in one situation.
 % Thus, this method does not provide a guarantee that Fides will end up with correct classifications for every target.
 
@@ -116,11 +103,3 @@ TODO
 % \subsection{Scenarios of No pre-trusted peers, and 50\% pre-trusted peers}
 % \label{subsec:resilience-under-different-conditions}
 % Other two important scenarios to consider are the situations where the administrator does not have any pre-trusted peers and when at least 50\% of peers are pre-trusted.
-
-% With no pre-trusted peers in the network, the results of each configuration vary and they highly depend on the network topology as well as on the knowledge of the local Slips instance. The results for the no pre-trusted scenario are shown in Appendix Figure~\ref{fig:performance-all-setups-0-pretrusted}.
-
-
-% In the scenario of 50\% pre-trusted peers, no matter the configuration, Fides was eventually able to determine the correct target classification with a high precision of $tdp \leq 0.7$. Moreover, Fides was able to correctly identify the peer's behavior with the precision of $pbdp \leq 0.2$. This is a very favorable situation for the administrator, where you trust the peers so much that it is not possible for the adversarial peers to modify the belief. The results for this scenario are shown in Appendix Figure~\ref{fig:performance-all-setups-50-pretrusted}.
-
-% \subsection{Discussion}
-% We discovered that actually there \textbf{exists} a particular setup that guarantees that Fides is able to eventually classify the targets correctly in a very adversarial situation. When Fides communicates with at least 25\% of pre-trusted peers from pre-trusted organizations ($0.25 \cdot |P|$ are pre-trusted) and uses $DistanceBasedTIEvaluation$ (section~\ref{subsec:distance-based-eval}) for evaluating the interactions in combination with $AverageConfidenceTIAggregation$ (Section~\ref{subsec:AverageConfidenceTIAggregation}) for aggregating the threat intelligence; then Fides is able to correctly classify the targets no matter how many adversarial peers are in the network (up to filling the remaining 75\%) or how hard they lie.
