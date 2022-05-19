@@ -32,9 +32,9 @@ Fides can be configured to use pre-trust in two different ways. First, to assign
 
 Second, Fides can use the initial pre-trusted value read from the configuration as the final service trust. This effectively means that Fides will not evaluate any data received from the pre-trusted peer and this service trust will be kept forever. 
 
-This configuration for the Fides is called \textit{enforceTrust}, if it is enabled and thus $enforceTrust = False$ is set in the configuration, Fides uses first variant where the trust for the peer will move during the interactions. When administrator uses $enforceTrust = True$, Fides uses second option and fixates the service trust for the peer to a set \textit{pre-trust}.
+This configuration for Fides is called \textit{enforceTrust}. If it is enabled and thus $enforceTrust = False$ is set in the configuration, Fides uses the first variant where the trust for the peer will move during the interactions. If the administrator uses $enforceTrust = True$, Fides uses the second option and fixates the service trust for the peer to a set \textit{pre-trust}.
 
-Both options helps to solve the cold start problem for specific peers and organizations, as they will start with a high reputation or fixed service trust. Which organization or peer to trust is completely left to the administrator of Slips. 
+Both options help solve the cold start problem for specific peers and organizations, as they will start with a high reputation or fixed service trust. Which organization or peer to trust is completely left to the administrator of Slips. 
 The inspiration for which organization or to which peer to trust provides, for example, Tor and their directory authorities~\cite{torauth}. However as the administrator needs to know the identity of the peers or organization, it does not solve the cold start problem globally for all peers.
 
 \subsection{Recommendations}
