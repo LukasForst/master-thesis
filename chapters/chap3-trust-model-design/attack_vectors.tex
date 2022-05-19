@@ -87,15 +87,15 @@ Thanks to these strategies, even peers that gained service trust at the beginnin
 
 However, even the honest peers can have inconsistent behavior, mainly when they do not have enough information about IP/domains.
 In experiments, we simulate this behavior for honest peers with \textit{Uncertain Peer} (\ref{subsubsec:uncertain-peer}) behavioral patterns.
-For malicious peers we have a period, during which they provide correct and consistent data, allowing them to gain the service trust. 
+For malicious peers, we have a period during which they provide correct and consistent data, allowing them to gain the service trust. 
 
 \subsection{Identity Management Related Attacks}
 \label{subsec:identity-management-attacks}
 The service trust and reputation are tied to the peer's identity. 
-In our case, Fides utilizes a peer's identity that was provided by the Network Layer \cite{nl}.
-From the technical point of view, the identity is, in a fact, a public key, and any data the peer provides is signed with the peer's private key. Thus, we can verify that the data were provided by the owner of the private key to said public key (identity).
+In our case, Fides uses a peer's identity that was provided by the Network Layer \cite{nl}.
+From the technical point of view, the identity is, in fact, a public key, and any data the peer provides is signed with the peer's private key. Thus, we can verify that the data were provided by the owner of the private key to said public key (identity).
 Moreover, any peer in our network can belong to one or more organizations that are, again, represented by their public key. 
-Peer proves their membership to the organization by providing their own public key signed by the organization's private key.
+Peers prove their membership to the organization by providing their own public key signed by the organization's private key.
 The identity, as well as organization membership, is cryptographically verified by the network layer \cite{nl} and Fides does not perform any additional verification. 
 
 \subsubsection{Impersonation}
