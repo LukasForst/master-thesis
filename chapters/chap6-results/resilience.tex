@@ -2,18 +2,15 @@
 \label{sec:fides-resilience}
 
 To evaluate the resilience of Fides in different scenarios, we need to find the optimal configuration for the following parameters in Fides: interaction evaluation strategy (Section~\ref{sec:interaction-evaluation-strategies}), threat intelligence aggregation function (Section~\ref{sec:network-intelligence-aggregation}) and initial reputation (Section~\ref{subsubsec:computing-reputation}). Each combination of parameters is evaluated in its capacity to correctly classify targets in \textit{any} network topology.\footnote{Distribution of correct/uncertain/incorrect/malicious peers in the network.}
-In other words, what setup should the Fides's administrator use in order for Fides to guarantee that it will be able to \textit{eventually} classify targets correctly.
 
 In this section, we are focusing on finding the best possible combination of parameters for the worst possible scenario. In other words, we want to identify a setup, where the Fides can guarantee that it is eventually going to provide the correct data and will classify the targets correctly even though the malicious actor controls most of the network.
 
-We executed myriad of scenarios with different Fides's setups as well as with the different environments starting with only benign peers to situations where there are only adversarial peers that try to influence Fide's decisions.
 
-
-
-\subsection{Correct Target Identification Under Harsh Conditions}
+\subsection{Scenario With 25\% of Pre-Trusted Peers}
 \label{subsec:correct-target-identification-no-matter-what}
 
-The first scenario that was evaluated was when the network has 25\% of pre-trusted peers. Several configurations were simulated, which results are shown in Figure~\ref{fig:performance-all-setups-25-pretrusted}. The goal is to find which 
+In this scenario, Fides talks to 25\% of pre-trusted peers with. We simulated environments starting with the 75\% of confident correct peers~(behavior in Section~\ref{subsubsec:confident-correct-peer}) up to 75\% malicious peers~(behavior f
+
 
 There are three rows and four columns. Each row contains a single interaction evaluation strategy (Section~\ref{sec:interaction-evaluation-strategies}) and each column contains a single metric that evaluates the behavior of that strategy in the network.
 There are three different metrics that evaluate the performance of the Fides's setup and the last graph displays how many confident correct (Section~\ref{subsubsec:confident-correct-peer}) peers there are in the network.
