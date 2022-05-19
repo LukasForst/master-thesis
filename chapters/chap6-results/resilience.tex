@@ -43,17 +43,20 @@ However, the $DistanceBasedTIEvaluation$ strategy in combination with $AverageCo
 
 % TODO: ensure that this appears on the left side and the next subsubsection on the right side
 \cleartoleftpage
+\subsubsection{Peers Behavior Detection Performance}
+Figure~\ref{fig:25-peer-trust} displays two important metrics which are related to how much does Fides trust the peers in the network. First is peer's behavior detection performance metric $pbdp$ (Section~\ref{subsec:peers-behavior-detection-performance-metric}) and the second is the peer's average trust.
+
+On the left side, one can see the peer's behavior detection performance metric that measures how good was Fides in estimating the peer's behavior. The lower value of $pbdp$ the better because the Fides's service trust for the peer was closer to the real value used in the simulation.
+
+
+
+
 \begin{figure}[hp]
     \centering
-    \includegraphics[height=0.94\textheight]{assets/25_peer_trust.png}
+    \includegraphics[width=1.0\textwidth]{assets/25_peer_trust.png}
     \caption{Target detection possibility.}
     \label{fig:25-peer-trust}
 \end{figure}
-
-\cleartoleftpage
-\subsubsection{Peers Behavior Detection Performance}
-Figure~\ref{fig:25-peer-trust} displays two important metrics which are related to 
-
 
 % There are three rows and four columns. Each row contains a single interaction evaluation strategy (Section~\ref{sec:interaction-evaluation-strategies}) and each column contains a single metric that evaluates the behavior of that strategy in the network.
 % There are three different metrics that evaluate the performance of the Fides's setup and the last graph displays how many confident correct (Section~\ref{subsubsec:confident-correct-peer}) peers there are in the network.
