@@ -30,7 +30,7 @@ Thus the higher the value of hardness is, the easier it is for the Fides to do c
 
 Specifically in Figure~\ref{fig:0-target-detection} we can see that that in the \textit{easy} environment, most of the \textit{dots} are below the red line until the hardness gets close to $3$.
 The metrics perform more or less the same as they are able to stay bellow the red line until $eh = 3$. In that situation, the best performance and thus the lowest $tdp$ has $ThresholdTIEvaluation$ in combination with $WeightedAverageConfidenceTIAggregation$ and initial reputation of $0.95$.
-Because the previous performance of all methods is similar, we recommend using this combination to ensure the best performance even in the harder situations.
+Because the previous performance of all methods is almost similar, we recommend using this combination up to $eh 3$ to ensure the best performance even in the harder situations.
 
 Interestingly, the $DistanceBasedTIEvaluation$ in combination with $0$ initial reputation and $AverageConfidenceTIAggregation$ for threat intelligence aggregation, shows the same target classification performance in each environment - $tdp = 0$. This suggests that the method was unable to determine any trust for any of the peers. This is then later confirmed by the Figure~\ref{fig:0-peer-trust}.
 
@@ -77,7 +77,7 @@ In this scenario, Fides assumes that there are 25\% of pre-trusted peers. We sim
 \end{figure}
 
 Specifically in Figure~\ref{fig:25-target-detection} one can see that until the environment hardness $eh \geq 3$, all strategies help Fides to classify targets correctly.
-That changes after the environment hardness $eh \leq 2.5$ when the $ThresholdTIEvaluation$ as well as $MaxConfidenceTIEvaluation$ misclassify the targets and the $tdp \geq 1$. In that case, all threat intelligence aggregation methods are the same and all of them misclassify the targets no matter what initial reputation is used.
+That changes after the environment hardness $eh \leq 2.5$ when the $ThresholdTIEvaluation$ as well as $MaxConfidenceTIEvaluation$ misclassify the targets. In that case, all threat intelligence aggregation methods are the same and all of them misclassify the targets no matter what initial reputation is used.
 However, the $DistanceBasedTIEvaluation$ strategy in combination with $AverageConfidenceTIAggregation$ method is able to still classify the targets correctly and maintain the $tdp \leq 1$ even under toughest conditions where there are 75\% of adversarial peers in the simulation.
 
 When Fides is used in a similar situation with the threat intelligence aggregation method $WeightedAverageConfidenceTIAggregation$, it misclassified the targets in one simulation when working in the hardest environment.
