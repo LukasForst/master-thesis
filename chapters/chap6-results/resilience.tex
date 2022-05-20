@@ -81,12 +81,12 @@ In general, the $DistanceBasedTIEvaluation$ performs the best in almost all situ
 
 The situation changes after the environment hardness goes over $2.5$ ($eh \leq 2.5$) when the $ThresholdTIEvaluation$ and $MaxConfidenceTIEvaluation$ misclassify the targets. In that case, all threat intelligence aggregation methods are the same and all of them misclassify the targets no matter what initial reputation is used.
 However, the $DistanceBasedTIEvaluation$ strategy in combination with $AverageConfidenceTIAggregation$ method is able to still classify the targets correctly and maintain the $tdp \leq 1$ even under toughest conditions where there are 75\% of adversarial peers in the simulation. 
-We include the visualization of this case in the appendix in Figure~\ref{fig:worst-best-scenario}.
+We include more detailed visualization of this case in the appendix in Figure~\ref{fig:worst-best-scenario}.
 
 When Fides is used in a similar situation with the threat intelligence aggregation method $WeightedAverageConfidenceTIAggregation$, it misclassified the targets in one simulation when working in the hardest environment.
 Thus, this method does not provide a guarantee that Fides will end up with correct classifications for every target.
 
-The results with 25\% of pre-trusted peers have shown that Fides is able to classify all the targets properly all the time if 
+To sumarize, the results have shown that with 25\% of pre-trusted peers is Fides able to classify all the targets properly all the time if the interaction evaluation strategy $DistanceBasedTIEvaluation$ is used in combination with the $AverageConfidenceTIAggregation$ threat intelligence aggregation method. In such case, Fides provides a guarantee that no matter what the adversaries do, it calculates the correct threat intelligence.
 
 \cleartoleftpage
 \subsubsection{Peers Behavior Detection Performance}
