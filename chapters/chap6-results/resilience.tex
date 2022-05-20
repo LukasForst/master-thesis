@@ -29,7 +29,8 @@ The horizontal axis in each graph measures the environment hardness explained in
 Thus the higher the value of hardness is, the easier it is for the Fides to do correct classification.
 
 Specifically in Figure~\ref{fig:0-target-detection} we can see that that in the \textit{easy} environment, most of the \textit{dots} are below the red line until the hardness gets close to $3$.
-The metrics perform more or less the same as they are able to stay bellow the red line until $eh = 3$. In that situation, the best performance and thus the lowest $tdp$ has $ThresholdTIEvaluation$ in combination with $WeighedDistanceToLocalTIEvaluation$ and initial reputation of $0.95$.
+The metrics perform more or less the same as they are able to stay bellow the red line until $eh = 3$. In that situation, the best performance and thus the lowest $tdp$ has $ThresholdTIEvaluation$ in combination with $WeightedAverageConfidenceTIAggregation$ and initial reputation of $0.95$.
+Because the previous performance of all methods is similar, we recommend using this combination to ensure the best performance even in the harder situations.
 
 Interestingly, the $DistanceBasedTIEvaluation$ in combination with $0$ initial reputation and $AverageConfidenceTIAggregation$ for threat intelligence aggregation, shows the same target classification performance in each environment - $tdp = 0$. This suggests that the method was unable to determine any trust for any of the peers. This is then later confirmed by the Figure~\ref{fig:0-peer-trust}.
 
