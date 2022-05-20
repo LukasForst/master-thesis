@@ -76,13 +76,17 @@ In this scenario, Fides assumes that there are 25\% of pre-trusted peers. We sim
     \label{fig:25-target-detection}
 \end{figure}
 
-Specifically in Figure~\ref{fig:25-target-detection} one can see that until the environment hardness $eh \geq 3$, all strategies help Fides to classify targets correctly.
+Specifically in Figure~\ref{fig:25-target-detection} one can see that until the environment hardness $eh \geq 3$, all strategies help Fides to classify the targets correctly.
+In general, the $DistanceBasedTIEvaluation$ performs the best in almost all situations except the easiest one, where the $MaxConfidenceTIEvaluation$ has slightly better results.
 
-Fides starts to misscla changes after the environment hardness $eh \leq 2.5$ when the $ThresholdTIEvaluation$ as well as $MaxConfidenceTIEvaluation$ misclassify the targets. In that case, all threat intelligence aggregation methods are the same and all of them misclassify the targets no matter what initial reputation is used.
-However, the $DistanceBasedTIEvaluation$ strategy in combination with $AverageConfidenceTIAggregation$ method is able to still classify the targets correctly and maintain the $tdp \leq 1$ even under toughest conditions where there are 75\% of adversarial peers in the simulation.
+The situation changes after the environment hardness goes over $2.5$ ($eh \leq 2.5$) when the $ThresholdTIEvaluation$ and $MaxConfidenceTIEvaluation$ misclassify the targets. In that case, all threat intelligence aggregation methods are the same and all of them misclassify the targets no matter what initial reputation is used.
+However, the $DistanceBasedTIEvaluation$ strategy in combination with $AverageConfidenceTIAggregation$ method is able to still classify the targets correctly and maintain the $tdp \leq 1$ even under toughest conditions where there are 75\% of adversarial peers in the simulation. 
+We include the visualization of this case in the appendix in Figure~\ref{fig:worst-best-scenario}.
 
 When Fides is used in a similar situation with the threat intelligence aggregation method $WeightedAverageConfidenceTIAggregation$, it misclassified the targets in one simulation when working in the hardest environment.
 Thus, this method does not provide a guarantee that Fides will end up with correct classifications for every target.
+
+The results with 25\% of pre-trusted peers have shown that Fides is able to classify all the targets properly all the time if 
 
 \cleartoleftpage
 \subsubsection{Peers Behavior Detection Performance}
