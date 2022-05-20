@@ -63,7 +63,7 @@ As suggested in the previous section while measuring target detection performanc
 \subsection{Scenario With 25\% of Pre-Trusted Peers}
 \label{subsec:scenario-with-25-pretrusted-peers}
 
-In this scenario, Fides talks to 25\% of pre-trusted peers with. We simulated environments starting with the 75\% of confident correct peers~(behavior from Section~\ref{subsubsec:confident-correct-peer}) up to 75\% malicious peers~(behavior from Section~\ref{subsubsec:malicious-peer}) and used all possible setups.
+In this scenario, Fides assumes that there are 25\% of pre-trusted peers. We simulated environments starting with the 75\% of confident correct peers~(behavior from Section~\ref{subsubsec:confident-correct-peer}) up to 75\% malicious peers~(behavior from Section~\ref{subsubsec:malicious-peer}) and used all possible setups.
 
 \subsubsection{Target Detection Performance}
 \label{subsubsec:target-detection-performance}
@@ -79,7 +79,7 @@ Specifically in Figure~\ref{fig:25-target-detection} one can see that until the 
 That changes after the environment hardness $eh \leq 2.5$ when the $ThresholdTIEvaluation$ as well as $MaxConfidenceTIEvaluation$ misclassify the targets and the $tdp \geq 1$. In that case, all threat intelligence aggregation methods are the same and all of them misclassify the targets no matter what initial reputation is used.
 However, the $DistanceBasedTIEvaluation$ strategy in combination with $AverageConfidenceTIAggregation$ method is able to still classify the targets correctly and maintain the $tdp \leq 1$ even under toughest conditions where there are 75\% of adversarial peers in the simulation.
 
-When Fides used in the similar situation the threat intelligence aggregation method $WeightedAverageConfidenceTIAggregation$, it misclassified the targets in one simulation in when the hardest environment.
+When Fides is used in a similar situation with the threat intelligence aggregation method $WeightedAverageConfidenceTIAggregation$, it misclassified the targets in one simulation when working in the hardest environment.
 Thus, this method does not provide a guarantee that Fides will end up with correct classifications for every target.
 
 \cleartoleftpage
